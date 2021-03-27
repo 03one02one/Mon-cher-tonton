@@ -7,106 +7,38 @@
         <title>Beau voyage</title>
         <style media="screen">
             @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-            ul{
-                list-style: none;
+            body {
+                padding: 40px;
+                background-color: #F4E6E5;
             }
 
-            .menu {
-                padding-left: 30px;
-            }
-            .menu li {
-                margin-left: 10px;
-                line-height: 30px;
-                list-style: none;
-            }
-
-            .menu li a {
-                padding : 5px;
-                color : #000000;
-                font-size: 14px;
-                text-decoration: none;
-            }
-            .menu li a:hover {
-                padding-left: 50px;
-                padding-right: 50px;
-                color: #000000;
-                background-color: rgb(110, 230, 86);
-            }
-            .menu ul:after { content: "";
-                                display: block;
-                                clear: both;
-                                }
-            .menu li { float: left;
-                        width: auto;
-            }
-            .nav {
-                margin-left: 40px;
-                background-color: white;
-                float: left;
-            }
-            .nab {
-                margin-right:40px;
-                background-color:white;
-                float:right;
-                margin-bottom:30px;
-            }
-            .story {
-                margin-top : 30px;
-                margin : 40px;
-                background-color:lightslategrey;
-                float : left;
-                width:300px;
-                height:200px;
-                text-align : left;
-            }
-            .scale {
-                transform: scale(1);
-                -webkit-transform: scale(1);
-                -moz-transform: scale(1);
-                -ms-transform: scale(1);
-                -o-transform: scale(1);
-                transition: all 0.3s ease-in-out;
-            }
-            .scale:hover {
-                transform: scale(1.2);
-                -webkit-transform: scale(1.2);
-                -moz-transform: scale(1.2);
-                -ms-transform: scale(1.2);
-                -o-transform: scale(1.2);
-            }
-            .img {
-                width:325px;
-                height: 325px;
-                overflow:hidden;
-            }
             .font {
                 font-family: 'Permanent Marker', cursive;
             }
-            .btn button {
-                margin-left: 250px;
+            .contents button {
+                margin-left: 240px;
                 border-radius: 5px;
-                border: 1px solid rgb(164, 198, 222);
+                border: 1px solid #F4E6E5;
                 background-color: rgba(0, 0, 0, 0);
-                color: rgb(102, 100, 139);
+                color: rgb(158, 95, 253);
                 font-size: 20px;
                 padding: 5px;
             }
-            .btn button:hover {
-                color: white;
-                background-color: rgb(102, 100, 139);
+            .contents button:hover {
+                color: rgb(255, 206, 81);
+                background-color: rgb(158, 95, 253);
             }
 
             p {
                 font-size: 40px;
                 text-align: center;
-                color: rgb(255, 211, 26)
+                color: rgb(24, 218, 210)
             }
         </style>
     </head>
-    <body style="background-color : rgb(164, 198, 222)">
+    <body>
         <p class="font">Mon Cher Tonton</p>
-        <img float=center>
-        <div class="btn">
+        <div class="contents">
             <button onclick="location.href='main.html'">main</button >
             <button onclick="location.href='kpop.html'">kpop</button >
             <button onclick="location.href='pop.html'">pop</button >

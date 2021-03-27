@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang = "ko">
     <head>
         <meta charset="UTF-8">
         <meta name = "viewport" content="width=device=width, initial-scale=1.0">
@@ -7,110 +7,272 @@
         <title>Beau voyage</title>
         <style media="screen">
             @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-            ul{
-                list-style: none;
+            body {
+                padding: 40px;
+                background-color: #F4E6E5;
             }
 
-            .menu {
-                padding-left: 30px;
-            }
-            .menu li {
-                margin-left: 10px;
-                line-height: 30px;
-                list-style: none;
+            button {
+                cursor: pointer;
             }
 
-            .menu li a {
-                padding : 5px;
-                color : #000000;
-                font-size: 14px;
-                text-decoration: none;
-            }
-            .menu li a:hover {
-                padding-left: 50px;
-                padding-right: 50px;
-                color: #000000;
-                background-color: rgb(110, 230, 86);
-            }
-            .menu ul:after { content: "";
-                                display: block;
-                                clear: both;
-                                }
-            .menu li { float: left;
-                        width: auto;
-            }
-            .nav {
-                margin-left: 40px;
-                background-color: white;
-                float: left;
-            }
-            .nab {
-                margin-right:40px;
-                background-color:white;
-                float:right;
-                margin-bottom:30px;
-            }
-            .story {
-                margin-top : 30px;
-                margin : 40px;
-                background-color:lightslategrey;
-                float : left;
-                width:300px;
-                height:200px;
-                text-align : left;
-            }
-            .scale {
-                transform: scale(1);
-                -webkit-transform: scale(1);
-                -moz-transform: scale(1);
-                -ms-transform: scale(1);
-                -o-transform: scale(1);
-                transition: all 0.3s ease-in-out;
-            }
-            .scale:hover {
-                transform: scale(1.2);
-                -webkit-transform: scale(1.2);
-                -moz-transform: scale(1.2);
-                -ms-transform: scale(1.2);
-                -o-transform: scale(1.2);
-            }
-            .img {
-                width:325px;
-                height: 325px;
-                overflow:hidden;
-            }
             .font {
                 font-family: 'Permanent Marker', cursive;
             }
-            .btn button {
-                margin-left: 250px;
+            
+            .contents button {
+                margin-left: 240px;
                 border-radius: 5px;
-                border: 1px solid rgb(164, 198, 222);
+                border: 1px solid #F4E6E5;
                 background-color: rgba(0, 0, 0, 0);
-                color: rgb(102, 100, 139);
+                color:  rgb(158, 95, 253);
                 font-size: 20px;
                 padding: 5px;
             }
-            .btn button:hover {
-                color: white;
-                background-color: rgb(102, 100, 139);
+
+            .contents button:hover {
+                color: rgb(255, 206, 81);
+                background-color: rgb(158, 95, 253);
+            }
+
+            .album-btn button {
+                width: 350px;
+                height: 350px;
+                border: none;
+                background-color: #FFFFFF;
+            }
+
+            .btn {
+                margin-top: 150px;
+                margin-left: 90px;
+                border: 0;
+                padding: 0px;
+                background: #F4E6E5;
+            }
+
+            #popup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+            }
+
+            #popup.hide {
+            display: none;
+            }
+
+            #popup.has-filter {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            }
+
+            #popup .info {
+            padding: 20px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            }
+
+            .close-btn {
+                background: rgb(119, 200, 236);
+                border: 0;
+                color:rgb(158, 95, 253);
+            }
+
+            .lyrics {
+                font-size: 15px;
+                text-align: center;
+                color: rgb(237, 74, 184)
             }
 
             p {
                 font-size: 40px;
                 text-align: center;
-                color: rgb(255, 211, 26)
+                color: rgb(24, 218, 210)
             }
         </style>
     </head>
-    <body style="background-color : rgb(164, 198, 222)">
+    <body>
         <p class="font">Mon Cher Tonton</p>
-        <img float=center>
-        <div class="btn">
+        <div class="contents">
             <button onclick="location.href='main.html'">main</button >
             <button onclick="location.href='kpop.html'">kpop</button >
             <button onclick="location.href='pop.html'">pop</button >
             <button onclick="location.href='ost.html'">ost</button >
+        </div>
+        <script type="text/javascript">
+            function showPopup(hasFilter) {
+                const popup = document.querySelector('#popup');
+        
+              if (hasFilter) {
+                popup.classList.add('has-filter');
+              } else {
+                popup.classList.remove('has-filter');
+            }
+        
+              popup.classList.remove('hide');
+            }
+
+            function closePopup() {
+                const popup = document.querySelector('#popup');
+              popup.classList.add('hide');
+            }
+        </script>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/alliwannado.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+                <p class="lyrics">
+                    Girl 말해줘 네 마음 바로 지금
+                    Baby 같이 올라가자 하늘 위로
+                    All I wanna do is kick it with you
+                    너의 몸매 그린 것만 같아 미술
+                    오늘 의상처럼 네 마음도 씨쓰루
+                    All I wanna do is kick it with you
+
+                    Girl 뭐가 중요한지 baby 바로 말해줄게
+                    나 지금 5천만원짜리 시계 찼지만
+                    나는 너를 훨씬 아끼지 babe
+                    네가 원한다면 안 찰게
+                    허세 따위는 안 통하니까
+                    넌 정말 신기한 여자
+                    나를 노력하게 만드니까 baby oh yeah
+                    우리 둘의 밤을 상상했어 girl all night
+                    몸에 타투를 보여줘 If it’s alright
+
+                    Girl 말해줘 네 마음 바로 지금
+                    Baby 같이 올라가자 하늘 위로
+                    All I wanna do is kick it with you
+                    너의 몸매 그린 것만 같아 미술
+                    오늘 의상처럼 네 마음도 씨쓰루
+                    All I wanna do is kick it with you
+
+                    어떡해 내 맘에 네가 들어오려 해
+                    쉽게 빠질까 봐 위험해 보여 조심하려 할 때
+                    움직여지지 않아
+                    날 보는 네 시선이 내 몸을 감아
+                    하나로 얽혀 너와 나
+                    이제부턴 아무도 풀지 못해
+                    뻔하지 않게 우연같이 만나 baby
+                    서로에게 녹아들어
+                    오늘밤 우리 기분은 저 하늘 구름 위
+                    네 몸에 타투를 보여줘
+                    이미 내 맘은 준비되어있어
+
+                    Boy 말할게 내 마음 바로 지금
+                    그래 같이 올라가자 하늘 위로
+                    All I wanna do is kick it with you
+                    네가 원한대로 내 대답은 Me too
+                    이제부터 널 부르게 해줘 My boo
+                    All I wanna do is kick it with you
+
+                    내가 하고 싶은 모든 것 뒤엔
+                    ‘너와 함께’가 생략 되어 있지
+                    요즘 인기 많은 교포오빠들과는 달라
+                    김치 향기가 배어있지
+                    덕분에 난 몰아 호랑이
+                    택 달린 옷은 방에 쌓여가고 있어
+                    밤에 입어 편하게
+                    이젠 너는 나 나는 너로 구분 짓고
+                    ALL I WANNA DO 라고 말해 편하게
+
+                    너의 옆자리를 상상할 거고
+                    그곳에는 내가 있게 될 거야
+                    그리고 너에 대해 장담하건대
+                    뭐든 할 수 있을 거라고 믿게 될 거야
+
+                    Girl 말해줘 네 마음 바로 지금
+                    Baby 같이 올라가자 하늘 위로
+                    All I wanna do is kick it with you
+                    너의 몸매 그린 것만 같아 미술
+                    오늘 의상처럼 네 마음도 씨쓰루
+                    All I wanna do is kick it with you
+                </p>
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/blueming.jfif" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+       
+        <button class="btn" onclick="showPopup(false)"><img src="picture/crazySound.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/Doyouwanttowalkwithme.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/god.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/happinessspokenbytheheart.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/raindrop.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="showPopup(false)"><img src="picture/ShinYeYoung.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/songehan.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/sunset.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/time.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+
+        <button class="btn" onclick="showPopup(false)"><img src="picture/ToMyaDolescence.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+        <div id="popup" class="hide">
+            <div class="info">
+              <button class="close-btn" onclick="closePopup()">닫기</button>
+            </div>
         </div>
     </body>
 </html>
