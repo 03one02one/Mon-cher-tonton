@@ -11,125 +11,531 @@
               background-color: #F4E6E5;
           }
 
-            button {
-                cursor: pointer;
-            }
+          button {
+              cursor: pointer;
+          }
 
-            .font {
-                font-family: 'Permanent Marker', cursive;
-            }
-            
-            .contents button {
-                margin-left: 240px;
-                border-radius: 5px;
-                border: 1px solid #F4E6E5;
-                background-color: rgba(0, 0, 0, 0);
-                color:  rgb(158, 95, 253);
-                font-size: 20px;
-                padding: 5px;
-            }
-
-            .contents button:hover {
-                color: rgb(255, 206, 81);
-                background-color: rgb(158, 95, 253);
-            }
-
-            .album-btn button {
-                width: 350px;
-                height: 350px;
-                border: none;
-                background-color: #FFFFFF;
-            }
-
-            .btn {
-                margin-top: 150px;
-                margin-left: 90px;
-                border: 0;
-                padding: 0px;
-                background: #F4E6E5;
-            }
-
-            .not-scroll {
-              overflow: hidden;
-            }
-
-            .container {
-              position: fixed;
-              left: 0;
-              right: 0;
-              top: 0;
-              bottom: 0;
-              background: #8a8a8ab3;
-            }
-
-            .wrapModal {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              background: white;
-              max-height: 100vh;
-              overflow-y: scroll;
-            }
-
-            .modal {
-              width: 300px;
-            }
-
-            .level {
-              z-index: 2;
-            }
-
-            #popup {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background: rgba(0, 0, 0, .7);
-              z-index: 1;
-            }
-
-            #popup.hide {
-            display: none;
-            }
-
-            #popup.has-filter {
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            }
-
-            #popup .info {
-              padding: 20px;
-              width: 380px;
-              height: 660px;
-              background: rgb(119, 200, 236);
+          .font {
+              font-family: 'Permanent Marker', cursive;
+          }
+          
+          .contents button {
+              margin-left: 240px;
               border-radius: 5px;
-              box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
-              overflow-y: scroll;
-            }
+              border: 1px solid #F4E6E5;
+              background-color: rgba(0, 0, 0, 0);
+              color:  rgb(158, 95, 253);
+              font-size: 20px;
+              padding: 5px;
+          }
 
-            .close-btn {
-              text-align: right;
-                background: rgb(119, 200, 236);
-                border: 0;
-                color:rgb(158, 95, 253);
-            }
+          .contents button:hover {
+              color: rgb(255, 206, 81);
+              background-color: rgb(158, 95, 253);
+          }
 
-            .lyrics {
-                font-size: 13px;
-                text-align: center;
-                color: rgb(237, 74, 184)
-            }
+          .album-btn button {
+              width: 350px;
+              height: 350px;
+              border: none;
+              background-color: #FFFFFF;
+          }
 
-            p {
-                font-size: 40px;
-                text-align: center;
-                color: rgb(24, 218, 210)
-            }
+          .btn {
+              margin-top: 150px;
+              margin-left: 90px;
+              border: 0;
+              padding: 0px;
+              background: #F4E6E5;
+          }
+
+          .not-scroll {
+            overflow: hidden;
+          }
+          
+          /* okay 팝업창 */
+          #okay-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #okay-pop.hide {
+            display: none;
+          }
+
+          #okay-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #okay-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #okay-pop .close-btn {
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* blueming 팝업창 */
+          #blueming-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #blueming-pop.hide {
+            display: none;
+          }
+
+          #blueming-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #blueming-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #blueming-pop .close-btn {
+            text-align: center;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* crazySound 팝업창 */
+          #crazySound-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #crazySound-pop.hide {
+            display: none;
+          }
+
+          #crazySound-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #crazySound-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #crazySound-pop .close-btn {
+            text-align: center;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* Doyouwanttowalkwithme 팝업창 */
+          #Doyouwanttowalkwithme-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #Doyouwanttowalkwithme-pop.hide {
+            display: none;
+          }
+
+          #Doyouwanttowalkwithme-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #Doyouwanttowalkwithme-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #Doyouwanttowalkwithme-pop .close-btn {
+            text-align: center;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* god 팝업창 */
+          #god-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #god-pop.hide {
+            display: none;
+          }
+
+          #god-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #god-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #god-pop .close-btn {
+            text-align: center;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* happinesspokenbytheheart 팝업창 */
+          #happinessspokenbytheheart-pop {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #happinessspokenbytheheart-pop.hide {
+            display: none;
+          }
+
+          #happinessspokenbytheheart-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #happinessspokenbytheheart-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #happinessspokenbytheheart-pop .close-btn {
+            text-align: center;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* raindrop 팝업창 */
+          #raindrop-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #raindrop-pop.hide {
+            display: none;
+          }
+
+          #raindrop-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #raindrop-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #raindrop-pop .close-btn {
+            text-align: right;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* ShinYeYoung 팝업창 */
+          #ShinYeYoung-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #ShinYeYoung-pop.hide {
+            display: none;
+          }
+
+          #ShinYeYoung-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #ShinYeYoung-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #ShinYeYoung-pop .close-btn {
+            text-align: right;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* Songehan 팝업창 */
+          #songehan-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #songehan-pop.hide {
+            display: none;
+          }
+
+          #songehan-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #songehan-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #songehan-pop .close-btn {
+            text-align: right;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+          /* sunset 팝업창 */
+          #sunset-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #sunset-pop.hide {
+            display: none;
+          }
+
+          #sunset-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #sunset-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #sunset-pop .close-btn {
+            text-align: right;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          /* Time 팝업창 */
+          #time-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #time-pop.hide {
+            display: none;
+          }
+
+          #time-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #time-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #time-pop .close-btn {
+            text-align: right;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+
+          /* ToMyaDolesence 팝업창 */
+          #ToMyaDolescence-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #ToMyaDolescence-pop.hide {
+            display: none;
+          }
+
+          #ToMyaDolescence-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(119, 200, 236);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #ToMyaDolescence-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(237, 74, 184)
+          }
+          #ToMyaDolescence-pop .close-btn {
+            text-align: right;
+            background: rgb(119, 200, 236);
+            border: 0;
+            color:rgb(158, 95, 253);
+          }
+
+          p {
+              font-size: 40px;
+              text-align: center;
+              color: rgb(24, 218, 210)
+          }
         </style>
     </head>
     
@@ -149,167 +555,900 @@
           popup();
         }
 
-        function openModal() {
-          const popup = document.querySelector('#popup');
+        function openOkay() {
+          const popup = document.querySelector('#okay-pop');
             popup.classList.remove('hide');
             body.classList.add("not-scroll");
             body.insertAdjacentHTML('afterend',modalHtml);
         }
-        function closeModal(){
-          const popup = document.querySelector('#popup');
+        function closeOkay(){
+          const popup = document.querySelector('#okay-pop');
               popup.classList.add('hide');
             body.classList.remove("not-scroll");
             modal.remove();
         }
       </script>
-      
-      <button class="btn" onclick="openModal()"><img src="picture/alliwannado.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id= "popup" class="container">
+      <button class="btn" onclick="openOkay()"><img src="picture/That's okay.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id= "okay-pop" class="hide">
         <div class="info">
             <div class="lyrics">
-              Girl 말해줘 네 마음 바로 지금 <br>
-              Baby 같이 올라가자 하늘 위로 <br>
-              All I wanna do is kick it with you <br>
-              너의 몸매 그린 것만 같아 미술  <br>
-              오늘 의상처럼 네 마음도 씨쓰루 <br>
-              All I wanna do is kick it with you <br>
-
-              Girl 뭐가 중요한지 baby 바로 말해줄게 <br>
-              나 지금 5천만원짜리 시계 찼지만 <br>
-              나는 너를 훨씬 아끼지 babe <br>
-              네가 원한다면 안 찰게 <br>
-              허세 따위는 안 통하니까 <br>
-              넌 정말 신기한 여자 <br>
-              나를 노력하게 만드니까 baby oh yeah <br>
-              우리 둘의 밤을 상상했어 girl all night <br>
-              몸에 타투를 보여줘 If it’s alright <br>
-
-              Girl 말해줘 네 마음 바로 지금 <br>
-              Baby 같이 올라가자 하늘 위로 <br>
-              All I wanna do is kick it with you <br>
-              너의 몸매 그린 것만 같아 미술 <br>
-              오늘 의상처럼 네 마음도 씨쓰루 <br>
-              All I wanna do is kick it with you <br>
-
-              어떡해 내 맘에 네가 들어오려 해 <br>
-              쉽게 빠질까 봐 위험해 보여 조심하려 할 때 <br>
-              움직여지지 않아 <br>
-              날 보는 네 시선이 내 몸을 감아 <br>
-              하나로 얽혀 너와 나 <br>
-              이제부턴 아무도 풀지 못해 <br>
-              뻔하지 않게 우연같이 만나 baby <br>
-              서로에게 녹아들어 <br>
-              오늘밤 우리 기분은 저 하늘 구름 위 <br>
-              네 몸에 타투를 보여줘 <br>
-              이미 내 맘은 준비되어있어 <br>
-
-              Boy 말할게 내 마음 바로 지금 <br>
-              그래 같이 올라가자 하늘 위로 <br>
-              All I wanna do is kick it with you <br>
-              네가 원한대로 내 대답은 Me too <br>
-              이제부터 널 부르게 해줘 My boo <br>
-              All I wanna do is kick it with you <br>
-
-              내가 하고 싶은 모든 것 뒤엔 <br>
-              ‘너와 함께’가 생략 되어 있지 <br>
-              요즘 인기 많은 교포오빠들과는 달라 <br>
-              김치 향기가 배어있지 <br>
-              덕분에 난 몰아 호랑이 <br>
-              택 달린 옷은 방에 쌓여가고 있어 <br>
-              밤에 입어 편하게 <br>
-              이젠 너는 나 나는 너로 구분 짓고 <br>
-              ALL I WANNA DO 라고 말해 편하게 <br>
-
-              너의 옆자리를 상상할 거고 <br>
-              그곳에는 내가 있게 될 거야 <br>
-              그리고 너에 대해 장담하건대 <br>
-              뭐든 할 수 있을 거라고 믿게 될 거야 <br>
-
-              Girl 말해줘 네 마음 바로 지금 <br>
-              Baby 같이 올라가자 하늘 위로 <br>
-              All I wanna do is kick it with you <br>
-              너의 몸매 그린 것만 같아 미술 <br>
-              오늘 의상처럼 네 마음도 씨쓰루 <br>
-              All I wanna do is kick it with you <br>
-                <button class="close-btn" onclick="closeModal()">닫기</button>
+              숱하게 스쳐간<br>
+              감정들에 무뎌지는 감각<br>
+              언제부턴가 익숙해져버린<br>
+              마음을 숨기는 법들 wow wow<br><br>
+              난 어디쯤에 와 있나<br>
+              앞만 보고 달려오기만 했던<br>
+              돌아보는 것도 왠지 겁이 나<br>
+              미뤄둔 얘기들<br><br>
+              시간이 가듯 내 안엔<br>
+              행복했었던 때론<br>
+              가슴이 저릴 만큼 눈물겨운 날도<br>
+              매일 같이 뜨고 지는 태양과<br>
+              저 달처럼 자연스레 보내<br><br>
+              때론 울고 (hey yo) 때론 웃고 (hey yo)<br>
+              기대하고 (hey yo) 아파하지 (hey yo)<br>
+              다시 설레고 (hey yo) 무뎌지고 (hey yo)<br>
+              마음이 가는 대로 있는 그대로<br><br>
+              수많은 별이 그랬듯이<br>
+              언제나 같은 자리<br>
+              제 몫의 빛으로 환하게 비출 테니<br>
+              숨기지 말고 너를 보여줄래 편히<br>
+              네 모습 그대로 그래 괜찮아 괜찮아도<br><br>
+              오늘 난 처음으로<br>
+              솔직한 내 마음을 마주해<br>
+              거울 앞에 서는 것도 머뭇대<br>
+              이 표정은 또 왜 이리도 어색해<br><br>
+              아름다운 건 늘 소중하고<br>
+              잠시 머물다 아득히 멀어져도<br>
+              늘 마주 보듯 평범한 일상을 채울 마음의 눈<br><br>
+              그 안에 감춰둔 외로움도<br>
+              잠시 머물 수 있게 해<br>
+              그저 바라봐<br>
+              부드러운 바람이 불면<br>
+              마음을 열어 지나갈 하루야<br><br>
+              때론 울고 (hey yo) 때론 웃고 (hey yo)<br>
+              기대하고 (hey yo) 아파하지 (hey yo)<br>
+              다시 설레고 (hey yo) 무뎌지고 (hey yo)<br>
+              마음이 가는 대로 있는 그대로<br><br>
+              수많은 별이 그랬듯이<br>
+              언제나 같은 자리에<br>
+              제 몫의 빛으로 환하게 비출 테니<br>
+              숨기지 말고 너를 보여줄래 편히<br>
+              네 모습 그대로 그래 괜찮아 괜찮아도<br><br>
+              두 손에 가득 채워질 추억들은 oh oh oh<br>
+              소중한 우리 이야기<br>
+              진심이 담긴 마음이<br>
+              시간이 지나 다시 기억할 수 있다면<br>
+              말할 수 있을까<br>
+              너도 행복했다고<br><br>
+              너와 울고 (hey yo) 같이 웃고 (hey yo)<br>
+              기대하고 (hey yo) 아파했지 (hey yo)<br>
+              모든 걸 쏟고 (hey yo) 사랑하고 (hey yo)<br>
+              마음이 가는 대로 있는 그대로<br><br>
+              말하지 못할 고민거리<br>
+              깊게 상처 난 자리<br>
+              늘 같은 속도로 흘러가는 시간이<br>
+              언제나 그랬듯이 씻어내줄 테니<br>
+              흐르듯 살아도 그냥 괜찮아 괜찮아도<br><br>
+                <button class="close-btn" onclick="closeOkay()">닫기</button>
             </div>
         </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/blueming.jfif" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openBlueming() {
+          const popup = document.querySelector('#blueming-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeBlueming(){
+          const popup = document.querySelector('#blueming-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openBlueming()"><img src="picture/blueming.jfif" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="blueming-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              "뭐해" 라는 두 글자에<br>
+              "네가 보고 싶어" 나의 속마음을 담아 우<br>
+              이모티콘 하나하나 속에<br>
+              달라지는 내 미묘한 심리를 알까 우<br><br>
+              아니 바쁘지 않아 nothing no, no<br>
+              잠들어 있지 않아 insomnia-nia-nia<br>
+              지금 다른 사람과 함께이지 않아<br>
+              응, 나도 너를 생각 중<br><br>
+              우리의 네모 칸은 bloom<br>
+              엄지손가락으로 장미꽃을 피워<br>
+              향기에 취할 것 같아 우<br>
+              오직 둘만의 비밀의 정원<br><br>
+              I feel bloom<br>
+              I feel bloom<br>
+              I feel bloom<br>
+              너에게 한 송이를 더 보내<br><br>
+              밤샘 작업으로 업데이트<br>
+              흥미로운 이 작품의 지은이 that's me 우<br>
+              어쩜 이 관계의 클라이맥스<br>
+              2막으로 넘어가기엔 지금이 good timing 우<br><br>
+              같은 맘인 걸 알아 rea-la-la-lize<br>
+              말을 고르지 말아 just rep-la-la-la-ly<br>
+              조금 장난스러운 나의 은유에<br>
+              네 해석이 궁금해<br><br>
+              우리의 색은 gray and blue<br>
+              엄지손가락으로 말풍선을 띄워<br>
+              금세 터질 것 같아 우<br>
+              호흡이 가빠져 어지러워<br><br>
+              I feel blue<br>
+              I feel blue<br>
+              I feel blue<br>
+              너에게 가득히 채워<br><br>
+              띄어쓰기없이보낼게사랑인것같애<br>
+              백만송이장미꽃을, 나랑피워볼래?<br>
+              꽃잎의 색은 우리 마음 가는 대로 칠해<br>
+              시들 때도 예쁘게<br><br>
+              우리의 네모 칸은 bloom<br>
+              엄지손가락으로 장미꽃을 피워<br>
+              향기에 취할 것 같아 우<br>
+              오직 둘만의 비밀의 정원<br><br>
+              I feel bloom<br>
+              I feel bloom<br>
+              I feel bloom<br><br>
+              너에게 한 송이를 더 보내<br><br>
+            </div>
+            <button class="close-btn" onclick="closeBlueming()">닫기</button>
           </div>
       </div>
       
-      <button class="btn" onclick="showPopup(false)"><img src="picture/crazySound.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openCrazySound() {
+          const popup = document.querySelector('#crazySound-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeCrazySound(){
+          const popup = document.querySelector('#crazySound-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openCrazySound()"><img src="picture/crazySound.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="crazySound-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              잘 지내 보여 너는<br>
+              아무 일 없는 듯 참 분주해 보여<br>
+              딱히 신경 쓸 것도<br>
+              걱정해 줄 일도 없는 사람처럼<br><br>
+              잠깐 동안 편했어<br>
+              힘들게 하던 니가 없어서<br><br>
+              떠나 보니 좀 어때, 생각처럼 넌 편해<br>
+              너를 놓치고 매일 후회하며 지냈어<br>
+              나만 그랬나 봐, 축 처진 어깨를 활짝 피라며<br>
+              날 토닥이고 갔어<br><br>
+              네 유별난 사랑을 문제 삼았던<br>
+              나를 용서해<br><br>
+              떠나 보니 좀 어때, 생각처럼 넌 편해<br>
+              너를 놓치고 매일 후회하며 지냈어<br>
+              나만 그랬나 봐, 축 처진 어깨를 활짝 피라며<br>
+              날 토닥이고 갔어<br><br>
+              위태로운 우리<br>
+              너는 지켜내려 붙잡고 있었어<br>
+              되려 화를 내고 너를 지치게 하고<br>
+              니가 다 문제라며 미친 소릴 했어<br><br>
+              너 없이 나는 안돼, 이렇게 널 못 보내<br>
+              나는 아직도 못 해준 게 너무 많은데<br>
+              이렇게 외쳐도 굳어진 네 맘을<br>
+              돌릴 수 없는 내가 너무 밉다<br><br>
+            </div>
+            <button class="close-btn" onclick="closeCrazySound()">닫기</button>
           </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/Doyouwanttowalkwithme.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openDoyouwanttowalkwithme() {
+          const popup = document.querySelector('#Doyouwanttowalkwithme-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeDoyouwanttowalkwithme(){
+          const popup = document.querySelector('#Doyouwanttowalkwithme-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openDoyouwanttowalkwithme()"><img src="picture/Doyouwanttowalkwithme.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="Doyouwanttowalkwithme-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              가을밤이 찾아와<br>
+              그대를 비추고 또 나를 감싸네<br>
+              눈을 감을 때마다<br>
+              향기로운 네 맘이 내게 전해지네, 움<br><br>
+              너는 무슨 생각해<br>
+              나란히 누워서 저 별을 바라볼 때면<br>
+              나와 같은 마음인지는 몰라도<br>
+              너와 함께 있는 이 순간이 난 소중해<br><br>
+              나랑 같이 걸을래, 혹시 내일은 뭐해?<br>
+              네가 부담되지 않는 날에 산책이라도 할래<br>
+              그냥 날이 좋길래 너와 걷고 싶어져서<br>
+              내일 많이 바쁘지 않으면, 혹시 나랑 같이 걸을래<br><br>
+              많이 어색한가 봐<br>
+              자꾸 딴 델 보고 널 닮은 별만 바라봐<br>
+              싱그럽게 불어오는 바람에<br>
+              너와 함께 있는 이 순간이 난 소중해<br><br>
+              나랑 같이 걸을래, 혹시 내일은 뭐해?<br>
+              네가 부담되지 않는 날에 산책이라도 할래<br>
+              그냥 날이 좋길래 너와 걷고 싶어져서<br>
+              내일 많이 바쁘지 않으면, 혹시 나랑 같이 걸을래<br><br>
+              힘들어 보일 땐<br>
+              내가 더 아파오고 속상한 마음만 커져<br>
+              내가 곁에 있을게 항상<br>
+              너의 편이 되어줄게 저 하늘의 별처럼<br><br>
+              나랑 같이 걸을래, 혹시 내일은 뭐해?<br>
+              네가 부담되지 않는 날에 산책이라도 할래<br>
+              그냥 날이 좋길래 너와 걷고 싶어져서<br>
+              내일 많이 바쁘지 않으면, 혹시 나랑 같이 걸을래<br><br>
+            </div>
+            <button class="close-btn" onclick="closeDoyouwanttowalkwithme()">닫기</button>
           </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/god.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function oepnGod() {
+          const popup = document.querySelector('#god-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeGod(){
+          const popup = document.querySelector('#god-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="oepnGod()"><img src="picture/god.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="god-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              내가 가는 이길이<br>
+              어디로 가는지<br>
+              어디로 날 데려가는지 그 곳은 어딘지<br>
+              알 수 없지만 알 수 없지만 알 수 없지만<br>
+              오늘도 난 걸어가고 있네<br><br>
+              사람들은 길이 다 정해져 있는지<br>
+              아니면 자기가 자신의 길을<br>
+              만들어 가는지<br>
+              알 수 없지만 알 수 없지만 알 수 없지만<br>
+              이렇게 또 걸어가고 있네<br><br>
+              나는 왜 이 길에 서있나<br>
+              이게 정말 나의 길인가<br>
+              이길의 끝에서 내 꿈은 이뤄질까<br><br>
+              무엇이 내게 정말 기쁨을 주는지<br>
+              돈인지 명옌지<br>
+              아니면 내가 사랑하는 사람들인지<br>
+              알고 싶지만 알고 싶지만 알고 싶지만<br>
+              아직도 답을 내릴 수 없네<br><br>
+              자신있게 나의 길이라고 말하고 싶고 그렇게<br>
+              믿고 돌아보지 않고<br>
+              후회도 하지 않고<br>
+              걷고 싶지만 걷고 싶지만 걷고 싶지만<br>
+              아직도 나는 자신이 없네<br><br>
+              나는 왜 이 길에 서있나,<br>
+              이게 정말 나의 길인가<br>
+              이 길의 끝에서 내 꿈은 이뤄질까<br><br>
+              나는 무엇을 꿈꾸는가<br>
+              그건 누굴 위한 꿈일까<br>
+              그 꿈을 이루면 난 웃을 수 있을까<br><br>
+              오 지금 내가 어디로 어디로 가는걸까<br>
+              나는 무엇을위해 살아야 살아야만 하는가<br><br>
+              나는 왜 이 길에 서있나,<br>
+              이게 정말 나의 길인가<br>
+              이 길의 끝에서 내 꿈은 이뤄질까<br><br>
+              나는 무엇을 꿈꾸는가<br>
+              그건 누굴 위한 꿈일까<br>
+              그 꿈을 이루면 난 웃을 수 있을까<br><br>
+              나는 왜 이 길에 서있나,<br>
+              이게 정말 나의 길인가<br>
+              이 길의 끝에서 내 꿈은 이뤄질까<br><br>
+              나는 무엇을 꿈꾸는가<br>
+              그건 누굴 위한 꿈일까<br>
+              그 꿈을 이루면 난 웃을 수 있을까<br><br>
+            </div>
+            <button class="close-btn" onclick="closeGod()">닫기</button>
           </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/happinessspokenbytheheart.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openHappinessspokenbytheheart() {
+          const popup = document.querySelector('#happinessspokenbytheheart-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeHappinessspokenbytheheart(){
+          const popup = document.querySelector('#happinessspokenbytheheart-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openHappinessspokenbytheheart()"><img src="picture/happinessspokenbytheheart.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="happinessspokenbytheheart-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              소란했던 오늘의 하루가<br>
+              너와 함께 고요해<br>
+              작은 입술을 열어<br>
+              우리의 밤을 노래해<br>
+              넌 내가 본 가장 아름다운 별<br>
+              날 꿈꾸게 해<br><br>
+              널 위해 태어난 꿈의 조각은<br>
+              어제보다 널 사랑하게 해<br>
+              그게 얼마나<br>
+              날 설레게 하고<br>
+              널 원하게 만드는지<br><br>
+              수많은 시간을 지나 네 품에<br>
+              가만히 안겨 너에게 잠겨<br>
+              눈을 감아 이 순간을 담아<br>
+              행복이라고 예쁘게 적어본다<br><br>
+              맞닿은 두 볼에 피어난 미소가<br>
+              서로의 맘을 비추고<br>
+              넌 내가 본 가장 눈부신 바다<br>
+              날 숨 쉬게 해<br><br>
+              널 위해 태어난 꿈의 조각은<br>
+              어제보다 널 사랑하게 해<br>
+              그게 얼마나<br>
+              날 설레게 하고<br>
+              널 원하게 만드는지<br><br>
+              수많은 시간을 지나 네 품에<br>
+              가만히 안겨 너에게 잠겨<br>
+              눈을 감아 이 순간을 담아<br>
+              행복이라고 예쁘게 적어본다<br><br>
+              나의 어린 날들은<br>
+              너로 기억될 거야<br>
+              말로는 다 할 수 없는<br>
+              커다란 이 맘을 모두 줄게<br><br>
+              너라는 이유 그 하나만으로<br>
+              마음이 말하는 세상으로<br>
+              빛나는 오늘 함께 하는 우리<br>
+              모든 게 선물인걸<br><br>
+              영원할 순간이 지금 내 앞에<br>
+              둘만의 특별한 여행을 떠나<br>
+              너를 안아 사랑을 담아<br>
+              행복이라고 예쁘게 적어본다<br><br>
+            </div>
+            <button class="close-btn" onclick="closeHappinessspokenbytheheart()">닫기</button>
           </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/raindrop.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openRaindrop() {
+          const popup = document.querySelector('#raindrop-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeRaindrop(){
+          const popup = document.querySelector('#raindrop-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openRaindrop()"><img src="picture/raindrop.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="raindrop-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              소나기가 내려온다<br>
+              내 머리위로 갑자기<br>
+              말도 없이 젖어버리겠네<br>
+              추억이 흘러 내린다<br>
+              따라 눈물도 흐른다 바보처럼<br>
+              집에 가는길 아직도 멀기만한데<br>
+              우산도 없이 감기걸릴 것만 같아<br>
+              이 길이 너에게로<br>
+              돌아갈수 있는 길이면<br>
+              젖어도 좋은데<br>
+              Oh Rain Drop<br>
+              Oh Rain Drop<br>
+              사랑이 참 모자라구나<br>
+              Oh Rain Drop<br>
+              Oh Rain Drop<br>
+              사랑은 저 빗방울처럼<br>
+              모두 까맣게 잊어버리고<br><br>
+              젖어 버리고선<br>
+              아파하는 감기같은 걸까요<br><br>
+              지난 여름날 햇살 아래 짜증내고<br>
+              뒤돌아 서버린 내 어리석음<br>
+              예전처럼 우산을 들고<br>
+              서있는 너를 본다면<br>
+              참 좋을 것같아<br>
+              Oh Rain Drop Oh Rain Drop<br>
+              사랑이 참 모자라구나<br>
+              Oh Rain Drop Oh Rain Drop<br>
+              사랑은 저 빗방울처럼<br>
+              모두 까맣게 잊어버리고<br>
+              젖어 버리고선<br>
+              아파하는 감기같은 걸까요<br>
+              쉽게 내쳐버린 말<br>
+              야속했던 얘기로<br>
+              많이 상처받았을 네 가슴 이지만<br>
+              오 아직도 내가 있다면<br>
+              그 안에 내가 있다면<br>
+              젖은 발로 달려가고만 싶어<br>
+              Oh rain drop oh rain drop<br>
+              사랑이 참 모자라구나<br>
+              Oh rain drop oh rain drop<br>
+              사랑은 저 빗방울처럼<br>
+              정말 까맣게 잊어버리고<br>
+              젖어 버리고선<br>
+              아파하는 감기같은 걸까요<br>
+              그런 못된 감기같은 걸까요<br>
+              내 사랑은 항상 왜 이럴까요<br><br>
+            </div>
+            <button class="close-btn" onclick="closeRaindrop()">닫기</button>
           </div>
       </div>
       
-      <button class="btn" onclick="showPopup(false)"><img src="picture/ShinYeYoung.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function oepnShinYeYoung() {
+          const popup = document.querySelector('#ShinYeYoung-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeShinYeYoung(){
+          const popup = document.querySelector('#ShinYeYoung-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="oepnShinYeYoung()"><img src="picture/ShinYeYoung.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="ShinYeYoung-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              이런 말 하기까지가 참 어려워서<br>
+              그대를 보낼 준비가 되질 않아서<br>
+              아프고 또 아파서 이젠 무뎌진 걸까<br>
+              나의 욕심인가 봐<br><br>
+              서운한 말을 하는 게 너무 미안했어<br>
+              그토록 바라고 또 바랬던 서롤 볼 수 없을까 봐<br>
+              그랬나 봐 내가<br>
+              헤어지고 나서야 궁금해진 말<br><br>
+              우리 왜 헤어져야 해 혹시 내가 잘못 한 게 있다면<br>
+              한 번 더 내게 기회를 준다면, 내가 더 노력할게<br>
+              네가 싫어하던 행동도 다신 하지 않을게<br>
+              돌아와 나를 꼭 안아줘<br><br>
+              마음이 변한 거라면 솔직했음 해<br>
+              내가 좀 구차해지면 다 잊혀질까<br>
+              널 다시 외면하고 지낼 수 있을까<br>
+              원래 없었던 것처럼 나 정말<br><br>
+              나는 헤어지기 싫어 네가 너무 보고파<br>
+              네가 자꾸 생각나 내게 돌아와 줘<br>
+              그때 널 붙잡지 못했던 나를 용서한다면<br>
+              돌아와 나를 꼭 안아줘<br><br>
+              많이 사랑하나 봐 비참해진 나지만<br>
+              이렇게라도 해서 널 다시 만날 수 있게 되면<br>
+              너무 밉다고 그냥 네게 안겨서<br>
+              왜 이제서야 돌아왔냐고 울고불고 소리칠 텐데<br><br>
+              나는 헤어지기 싫어 하고 싶은 말이 많은데<br>
+              혼자 두고 가지 말라고 네 손을 붙잡아도<br>
+              끝을 혼자 정해버리고 왜 날 두고 떠나가<br>
+              다신 보지도 않을 사람처럼<br><br>
+              아직 헤어지기 싫어 네가 아직 좋아서<br>
+              찢어질 듯 아파와 그런 말 하지 마<br>
+              내가 잘못 한 게 있다면 내가 미안하다고<br>
+              제발 날 떠나지 말아 줘<br><br>
+            </div>
+            <button class="close-btn" onclick="closeShinYeYoung()">닫기</button>
           </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/songehan.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openSongehan() {
+          const popup = document.querySelector('#songehan-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeSongehan(){
+          const popup = document.querySelector('#songehan-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+       <button class="btn" onclick="openSongehan()"><img src="picture/songehan.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="songehan-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              우리의 모든 순간이<br>
+              애틋해 눈물 날 때면<br>
+              언제나 네게 닿을 수 있게<br>
+              가까이서 머물게<br><br>
+              유난히 더 힘든 날엔<br>
+              더 이상 외롭지 않게 안아줄게<br>
+              영원히 내 품에 너를 간직할게<br><br>
+              세상이 널 외면해도 모두가 저버린데도<br>
+              항상 곁에서 변함없이 늘 있어줄게<br><br>
+              밝게 빛나는 별이 되어<br>
+              너를 비춰줄게 매일<br>
+              어두워 헤맬 때도<br>
+              앞이 두려워도<br>
+              언제나 널 지켜줄게<br><br>
+              세상이 널 아프게 할 땐<br>
+              내가 안아줄게 매일<br>
+              포근한 바람으로<br>
+              따듯한 햇살로<br>
+              난 널 지켜줄게 매일<br><br>
+              너의 모든 시간 속에 내가 함께할게<br>
+              오직 너를 위한 소중한 꿈을 담아<br><br>
+              밝게 빛나는 별이 되어<br>
+              너를 비춰줄게 매일<br>
+              어두워 헤맬 때도<br>
+              앞이 두려워도<br>
+              언제나 널 지켜줄게<br><br>
+              세상이 널 아프게 할 땐<br>
+              내가 안아줄게 매일<br>
+              포근한 바람으로<br>
+              따듯한 햇살로<br>
+              난 널 지켜줄게<br><br>
+              네가 걸어가는 그 길 따라<br>
+              수많은 별이 되어 비춰줄게<br><br>
+              눈부시게 또 아름답게<br>
+              너를 비춰줄게 매일<br>
+              세월이 흐른대도<br>
+              시간이 지나도<br>
+              언제나 널 사랑할게<br><br>
+              영원히 너만을 빛나게<br>
+              내가 비춰줄게 매일<br>
+              길고 긴 시간 속에서<br>
+              찾아올 끝에도<br>
+              너를 사랑할게 매일<br><br>
+            </div>
+            <button class="close-btn" onclick="closeSongehan()">닫기</button>
           </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/sunset.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openSunset() {
+          const popup = document.querySelector('#sunset-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeSunset(){
+          const popup = document.querySelector('#sunset-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openSunset()"><img src="picture/sunset.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="sunset-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              난 너를 사랑해<br>
+              Let's go Yes'll We're back again with 이문세<br>
+              That's right<br>
+              Fresh celebration 2008 It's bigbang yeah<br>
+              Yeah bust it<br>
+              그댄 아시나요 있잖아요<br>
+              지금 그대가 너무 보고파요<br>
+              고개 숙여 눈물 훔쳐요<br>
+              당신의 이름을 불러요<br><br>
+              꼭 이렇게 날 남겨두고<br>
+              떠나가야만 했는지<br><br>
+              너만 생각하면 머리 아퍼<br>
+              독하디 독한 술 같어<br><br>
+              술 뿐이겠어 병이지<br>
+              매일 앓아 누워 몇 번인지<br>
+              내일이면 또 잠깐 잊었다가 또<br>
+              모레쯤이면 생각나겠지만<br>
+              그래도 어떡해<br>
+              아직 내 사랑 유효한데<br>
+              돌아올 거라고 믿는데<br>
+              난 너만 기다리는데<br><br>
+              난 너를 사랑해<br>
+              (Oh I love you girl)<br>
+              이 세상은 너 뿐이야<br>
+              소리쳐 부르지만<br>
+              저 대답 없는<br>
+              노을만 붉게 타는데<br><br>
+              혹시 그대가 미안해한다면<br>
+              내 얼굴 보기 두렵다면 Girl<br>
+              그런 걱정 하덜덜덜 마<br>
+              너라면 힘이 펄펄펄 나<br><br>
+              보고 싶은 그대 얼굴<br>
+              저 붉은 노을을 닮아<br>
+              더 슬퍼지는 걸<br><br>
+              Oh baby baby<br>
+              다 지나간 시간<br>
+              우리가 함께한 추억<br>
+              잊진 말아줘요<br><br>
+              눈을 감아<br>
+              소리 없이 날 불러준다면<br>
+              언제라도 달려 갈께요<br><br>
+              Everyday<br>
+              Every night<br>
+              I need you<br><br>
+              난 너를 사랑해<br>
+              (Oh I love you girl)<br>
+              이 세상은 너 뿐이야<br>
+              소리쳐 부르지만<br>
+              저 대답 없는<br>
+              노을만 붉게 타는데<br><br>
+              아름다웠던 그대 모습을<br>
+              이젠 볼 순 없겠지만<br><br>
+              후횐 없어<br>
+              그저 바라볼 수 있게<br>
+              붉게 타주오<br><br>
+              Ah Ah Ah Ah Ah Ah Ah Ah<br>
+              (붉은 노을 Let's go)<br>
+              Ah Ah Ah Ah Ah Ah Ah Ah<br>
+              (Singing together)<br><br>
+              해가 뜨고 해가 지네<br>
+              노을 빛에 슬퍼지네<br>
+              달이 뜨고 달이 지네<br>
+              세월 속에 나 또한 무뎌지네<br><br>
+              해가 뜨고 해가 지네<br>
+              노을 빛에 슬퍼지네<br>
+              달이 뜨고 달이 지네<br>
+              그대 기억 또한 무뎌지네<br><br>
+              난 너를 사랑해<br>
+              (Oh I love you girl)<br>
+              이 세상은 너 뿐이야<br>
+              소리쳐 부르지만<br>
+              저 대답 없는<br>
+              노을만 붉게 타는데<br><br>
+              난 너를 사랑해<br>
+              (I love you girl)<br>
+              이 세상은 너 뿐이야<br>
+              (내겐 너 하나뿐인걸)<br>
+              소리쳐 부르지만<br>
+              저 대답 없는<br>
+              노을만 붉게 타는데<br><br>
+              Once again<br>
+              Ah Ah Ah Ah Ah Ah Ah Ah<br>
+              (Let's go)<br>
+              Ah Ah Ah Ah Ah Ah Ah Ah<br>
+              BIG BANG<br><br>
+            </div>
+            <button class="close-btn" onclick="closeSunset()">닫기</button>
           </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/time.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openTime() {
+          const popup = document.querySelector('#time-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeTime(){
+          const popup = document.querySelector('#time-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openTime()"><img src="picture/time.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="time-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              밤새 모니터에 튀긴 침이 마르기도 전에<br>
+              강의실로 아 참 교수님이 문신 땜에<br>
+              긴 팔 입고 오래 난 시작도 전에<br>
+              눈을 감았지 날 한심하게 볼 게 뻔하니<br><br>
+              이게 더 편해 내 벽은 원래<br>
+              이몰이 지나고 하늘이 까매진 후에야<br>
+              해가 뜨네 내가 처량하다고 다 그래<br><br>
+              야 야 난 쟤들이 돈 주고 가는<br>
+              파리의 시간을 사는 중이라 전해<br>
+              난 이게 궁금해<br><br>
+              시계는 둥근데 날카로운 초침이<br>
+              내 시간들을 아프게 모두가 바쁘게<br>
+              뭐를 하든 경쟁하라 배웠으니<br><br>
+              우린 우리의 시차로 도망칠 수밖에<br>
+              이미 저 문밖에는 모두 그래<br><br>
+              야 일찍 일어나야 성공해 안 그래 ?<br>
+              맞는 말이지 다 근데 니들이<br>
+              꿈을 꾸던ㄴ 그 시간에 나도 꿈을 꿨지<br>
+              두 눈 똑바로 뜬 채로<br>
+              We're livin' in a different time zone<br>
+              바뀌어버린 낮과 밤이야 ( yeah )<br>
+              Have a good night 먼저 자<br>
+              아직 난 일하는 중이야<br><br>
+              We are who we are<br>
+              we a-a-are who we a-a-are ohahh<br>
+              Don't you know who we are ?<br><br>
+              4호선 문이 열릴 때<br>
+              취해 있는 사람들과 날 똑같이 보지마<br><br>
+              그들이 휘청거릴 때마다<br>
+              풍기는 술 냄새마저 부러웠지만<br>
+              난 적응해야 했거든 이 시차<br><br>
+              꿈을 꾸게 해준 침댄 이 기차<br>
+              먼저 쌓일 틈이 없던 키보드 위<br><br>
+              그리고 2009년부터 지금까지 계속<br>
+              GRAY on the beat ya<br>
+              아침은 까맣고 우리의 밤은 하얘<br>
+              난 계속 칠하고 있고 똑같은 기차를 타네<br><br>
+              걱정한 적 없어 막차 시간은 한 번도<br>
+              얆았던 커튼이 햇빛을 완벽히 못 가려도<br>
+              난 지금 눈을 감아야 해<br><br>
+              내일의 나는 달라져야 해<br>
+              우린 아무것도 없이 여길 올라왔고<br>
+              넌 이 밤을 꼭 기억해야 돼<br><br>
+              We're livin' in a different time zone<br>
+              바뀌어버린 낮과 밤이야 ( yeah )<br>
+              Have a good night 먼저 자<br>
+              아직 난 일하는 중이야<br><br>
+              We are who we are<br>
+              we a-a-are who we a-a-are ohahh<br>
+              Don't you know who we are ?<br><br>
+              밤새 모니터에 튀긴 침이<br>
+              마르기도 전에 대기실로<br>
+              아 참 문신 땜에 긴 팔 입고 오래<br><br>
+              녹화 전에 눈을 감고 생각하지<br>
+              똑같은 행동 다른 느낌<br>
+              시차 부적응에 해당돼<br><br>
+              지금 내 옆엔 Loco 그리고 GRAY<br>
+              모두 비웃었던 동방의 소음이 어느새<br>
+              전국을 울려대<br><br>
+              야 이게 우리 시차의 결과고<br>
+              우린 아직 여기 산다 전해<br><br>
+              We're livin' in a different time zone<br>
+              바뀌어버린 낮과 밤이야 ( yeah )<br>
+              Have a good night 먼저 자<br>
+              아직 난 일하는 중이야<br><br>
+              We are who we are<br>
+              we a-a-are who we a-a-are ohahh<br>
+              Don't you know who we are ?<br><br>
+              모두 위험하다는 시간이 우린 되려 편해<br>
+              ( Don't you know who we are ? )<br><br>
+              밝아진 창문 밖을 봐야지<br>
+              비로소 맘이 편해<br>
+              ( Don't you know who we are ? )<br><br>
+              모두가 다 피하는 반지하가 우린 편해<br>
+              ( Don't you know who we are ? )<br>
+              [ We are x 3 ]<br>
+              Don't you know who we are ?<br><br>
+            </div>
+            <button class="close-btn" onclick="closeTime()">닫기</button>
           </div>
       </div>
 
-      <button class="btn" onclick="showPopup(false)"><img src="picture/ToMyaDolescence.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="popup" class="hide">
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openToMyaDolescence() {
+          const popup = document.querySelector('#ToMyaDolescence-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function colseToMyaDolescence(){
+          const popup = document.querySelector('#ToMyaDolescence-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+       <button class="btn" onclick="openToMyaDolescence()"><img src="picture/ToMyaDolescence.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="ToMyaDolescence-pop" class="hide">
           <div class="info">
-            <button class="close-btn" onclick="closePopup()">닫기</button>
+            <div class="lyrics">
+              나는 한때 내가 이 세상에 사라지길 바랬어<br>
+              온 세상이 너무나 캄캄해 매일 밤을 울던 날<br>
+              차라리 내가 사라지면 마음이 편할까<br>
+              모두가 날 바라보는 시선이 너무나 두려워<br><br>
+              아름답게 아름답던 그 시절을 난 아파서<br>
+              사랑받을 수 없었던 내가 너무나 싫어서<br>
+              엄마는 아빠는 다 나만 바라보는데<br>
+              내 마음은 그런 게 아닌데 자꾸만 멀어만 가<br><br>
+              어떡해<br>
+              어떡해<br>
+              어떡해<br>
+              어떡해<br><br>
+              시간이 약이라는 말이 내게 정말 맞더라고<br>
+              하루가 지나면 지날수록 더 나아지더라고<br>
+              근데 가끔은 너무 행복하면 또 아파올까 봐<br>
+              내가 가진 이 행복들을 누군가가 가져갈까 봐<br><br>
+              아름다운 아름답던 그 기억이 난 아파서<br>
+              아픈 만큼 아파해도 사라지지를 않아서<br>
+              친구들은 사람들은 다 나만 바라보는데<br>
+              내 모습은 그런 게 아닌데 자꾸만 멀어만 가<br><br>
+              그래도 난 어쩌면<br>
+              내가 이 세상에 밝은 빛이라도 될까 봐<br>
+              어쩌면 그 모든 아픔을 내딛고서라도<br>
+              짧게 빛을 내볼까 봐<br>
+              포기할 수가 없어<br>
+              하루도 맘 편히 잠들 수가 없던 내가<br>
+              이렇게라도 일어서 보려고 하면<br>
+              내가 날 찾아줄까 봐<br><br>
+              아아아아아아아아<br>
+              아아아아아아아아<br>
+              아아아아아아아아<br>
+              아아아아아아아아<br><br>
+              얼마나 얼마나 아팠을까<br>
+              얼마나 얼마나 아팠을까<br>
+              얼마나 얼마나 얼마나 바랬을까<br><br>
+            </div>
+            <button class="close-btn" onclick="colseToMyaDolescence()">닫기</button>
           </div>
       </div>
     </body>
