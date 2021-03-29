@@ -211,8 +211,8 @@
             color:rgb(148, 51, 187);
           }
 
-          /* LostStars 팝업창 */
-          #loststars-pop {
+          /* ParisInTheRain 팝업창 */
+          #parisintherain-pop {
             text-align: center;
             display: flex;
             justify-content: center;
@@ -226,11 +226,11 @@
             z-index: 1;
           }
 
-          #loststars-pop.hide {
+          #parisintherain-pop.hide {
             display: none;
           }
 
-          #loststars-pop .info {
+          #parisintherain-pop .info {
             padding: 20px;
             width: 380px;
             height: 660px;
@@ -239,12 +239,12 @@
             box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
             overflow-y: scroll;
           }
-          #loststars-pop .lyrics {
+          #parisintherain-pop .lyrics {
             font-size: 13px;
             text-align: center;
             color: rgb(68, 63, 54)
           }
-          #loststars-pop .close-btn {
+          #parisintherain-pop .close-btn {
             text-align: center;
             background: rgb(255, 252, 231);
             border: 0;
@@ -864,74 +864,86 @@
           popup();
         }
 
-        function openLostStars() {
-          const popup = document.querySelector('#loststars-pop');
+        function openParisInTheRain() {
+          const popup = document.querySelector('#parisintherain-pop');
             popup.classList.remove('hide');
             body.classList.add("not-scroll");
             body.insertAdjacentHTML('afterend',modalHtml);
         }
-        function closeLostStars(){
-          const popup = document.querySelector('#loststars-pop');
+        function closeParisInTheRain(){
+          const popup = document.querySelector('#parisintherain-pop');
               popup.classList.add('hide');
             body.classList.remove("not-scroll");
             modal.remove();
         }
       </script>
-      <button class="btn" onclick="openLostStars()"><img src="picture/LostStars.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="loststars-pop" class="hide">
+      <button class="btn" onclick="openLostStars()"><img src="picture/ParisInTheRain.jfif" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="parisintherain-pop" class="hide">
           <div class="info">
             <div class="lyrics">
-              Please, don't see<br>
-              Just a boy caught up in dreams and fantasies<br>
-              Please, see me<br>
-              Reaching out for someone I can't see<br><br>
-              Take my hand<br>
-              Let's see where we wake up tomorrow<br>
-              Best laid plans<br>
-              Sometimes are just a one night stand<br>
-              I'll be damned<br><br>
-              Cupid's demanding back his arrow<br>
-              So let's get drunk on our tears<br>
-              And, God, tell us the reason<br>
-              Youth is wasted on the young<br>
-              It's hunting season and the lambs are on the run<br><br>
-              Searching for meaning<br>
-              But are we all lost stars<br>
-              Trying to light up the dark?<br>
-              Who are we?<br>
-              Just a speck of dust within the galaxy<br>
-              Woe is me<br><br>
-              If we're not careful turns into reality<br>
-              Don't you dare let our best memories bring you sorrow<br>
-              Yesterday I saw a lion kiss a deer<br>
-              Turn the page<br>
-              Maybe we'll find a brand new ending<br><br>
-              Where we're dancing in our tears<br>
-              And, God, tell us the reason<br>
-              Youth is wasted on the young<br>
-              It's hunting season<br>
-              And the lambs are on the run<br><br>
-              Searching for meaning<br>
-              But are we all lost stars<br>
-              Trying to light up the dark?<br><br>
-              And I thought I saw you out there crying<br>
-              And I thought I heard you call my name<br>
-              And I thought I heard you out there crying<br><br>
-              Just the same<br>
-              Oh yeah, yeah yeah yeah yeah<br>
-              God, give us the reason<br>
-              Youth is wasted on the young<br>
-              It's hunting season and this lamb is on the run<br><br>
-              Searching for meaning<br>
-              But are we all lost stars<br>
-              Trying to light up the dark?<br><br>
-              And I thought I saw you out there crying<br>
-              And I thought I heard you call my name<br>
-              And I thought I heard you out there crying<br><br>
-              But are we all lost stars<br>
-              Trying to light up the dark?<br>
-              But are we all lost stars<br>
-              Trying to light up the dark?<br><br>
+              All I know is (ooh ooh ooh)<br>
+              We could go anywhere, we could do<br>
+              Anything, girl, whatever the mood we're in<br>
+              Yeah all I know is (ooh ooh ooh)<br>
+              Getting lost late at night, under stars<br>
+              Finding love standing right where we are, your lips<br><br>
+              They pull me in the moment<br>
+              You and I alone and<br>
+              People may be watching, I don't mind<br><br>
+              'Cause anywhere with you feels right<br>
+              Anywhere with you feels like<br>
+              Paris in the rain<br>
+              Paris in the rain<br>
+              We don't need a fancy town<br>
+              Or bottles that we can't pronounce<br>
+              'Cause anywhere, babe<br>
+              Is like Paris in the rain<br>
+              When I'm with you ooh ooh ooh<br>
+              When I'm with you ooh ooh ooh<br>
+              Paris in the rain<br>
+              Paris in the rain<br><br>
+              I look at you now and I want this forever<br>
+              I might not deserve it but there's nothing better<br>
+              Don't know how I ever did it all without you<br>
+              My heart is about to, about to jump out of my chest<br>
+              Feelings they come and they go, that they do<br>
+              Feelings they come and they go, not with you<br><br>
+              The late nights<br>
+              And the street lights<br>
+              And the people<br>
+              Look at me girl<br>
+              And the whole world could stop<br><br>
+              Anywhere with you feels right<br>
+              Anywhere with you feels like<br>
+              Paris in the rain<br>
+              Paris in the rain<br>
+              We don't need a fancy town<br>
+              Or bottles that we can't pronounce<br>
+              'Cause anywhere, babe<br>
+              Is like Paris in the rain<br>
+              When I'm with you ooh ooh<br>
+              When I'm with you ooh ooh<br>
+              Paris in the rain<br>
+              Paris in the rain<br><br>
+              Oh<br>
+              Girl, when I'm not with you<br>
+              All I do is miss you<br>
+              So come and set the mood right<br>
+              Underneath the moonlight<br>
+              (Days in Paris<br>
+              Nights in Paris)<br>
+              Paint you with my eyes closed<br>
+              Wonder where the time goes<br>
+              (Yeah, isn't it obvious?<br>
+              Isn't it obvious?)<br>
+              So come and set the mood right<br>
+              Underneath the moonlight<br><br>
+              'Cause anywhere with you feels right<br>
+              Anywhere with you feels like<br>
+              Paris in the rain<br>
+              Paris in the rain<br>
+              Walking down an empty street<br>
+              Puddles underneath our feet<br><br>
             </div>
             <button class="close-btn" onclick="closeLostStars()">닫기</button>
           </div>

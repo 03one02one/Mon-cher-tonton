@@ -1,49 +1,1371 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang = "ko">
     <head>
         <meta charset="UTF-8">
-        <meta name = "viewport" content="width=device=width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Beau voyage</title>
         <style media="screen">
-            @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+          
+          body {
+              padding: 40px;
+              background-color: rgb(68, 63, 54);
+          }
 
-            body {
-                padding: 40px;
-                background-color: #F4E6E5;
-            }
+          button {
+            cursor: pointer;
+          }
 
-            .font {
-                font-family: 'Permanent Marker', cursive;
-            }
-            .contents button {
-                margin-left: 240px;
-                border-radius: 5px;
-                border: 1px solid #F4E6E5;
-                background-color: rgba(0, 0, 0, 0);
-                color: rgb(158, 95, 253);
-                font-size: 20px;
-                padding: 5px;
-            }
-            .contents button:hover {
-                color: rgb(255, 206, 81);
-                background-color: rgb(158, 95, 253);
-            }
+          .font {
+              font-family: 'Permanent Marker', cursive;
+          }
+          
+          .contents button {
+              margin-left: 325px;
+              border-radius: 5px;
+              border: 1px solid rgb(68, 63, 54);
+              background-color: rgba(0, 0, 0, 0);
+              color:  rgb(148, 51, 187);
+              font-size: 20px;
+              padding: 5px;
+          }
 
-            p {
-                font-size: 40px;
-                text-align: center;
-                color: rgb(24, 218, 210)
-            }
+          .contents button:hover {
+              color: rgb(115, 174, 10);
+              background-color: rgb(148, 51, 187);
+          }
+
+          .album-btn button {
+              width: 350px;
+              height: 350px;
+              border: none;
+              background-color: #FFFFFF;
+          }
+
+          .btn {
+              margin-top: 150px;
+              margin-left: 90px;
+              border: 0;
+              padding: 0px;
+              background: rgb(68, 63, 54);
+          }
+
+          .not-scroll {
+            overflow: hidden;
+          }
+          
+          /* AWholeNewWorld 팝업창 */
+          #awholenewworld-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #awholenewworld-pop.hide {
+            display: none;
+          }
+
+          #awholenewworld-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #awholenewworld-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #awholenewworld-pop .close-btn {
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* BeautifulInMyLife 팝업창 */
+          #beautifulinmyylife-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #beautifulinmyylife-pop.hide {
+            display: none;
+          }
+
+          #beautifulinmyylife-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #beautifulinmyylife-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #beautifulinmyylife-pop .close-btn {
+            text-align: center;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* CityOfStars 팝업창 */
+          #cityofstars-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #cityofstars-pop.hide {
+            display: none;
+          }
+
+          #cityofstars-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #cityofstars-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #cityofstars-pop .close-btn {
+            text-align: center;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* DontWorry 팝업창 */
+          #dontworry-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #dontworry-pop.hide {
+            display: none;
+          }
+
+          #dontworry-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #dontworry-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #dontworry-pop .close-btn {
+            text-align: center;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* Hey 팝업창 */
+          #hey-pop {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #hey-pop.hide {
+            display: none;
+          }
+
+          #hey-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #hey-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #hey-pop .close-btn {
+            text-align: center;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+            /* Homura 팝업창 */
+            #homura-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #homura-pop.hide {
+            display: none;
+          }
+
+          #homura-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #homura-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #homura-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* Hyehwadong 팝업창 */
+          #hyehwadong-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #hyehwadong-pop.hide {
+            display: none;
+          }
+
+          #hyehwadong-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #hyehwadong-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #hyehwadong-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* ISeeTheLight 팝업창 */
+          #iseethelight-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #iseethelight-pop.hide {
+            display: none;
+          }
+
+          #iseethelight-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #iseethelight-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #iseethelight-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+           /* LostStars 팝업창 */
+           #loststars-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #loststars-pop.hide {
+            display: none;
+          }
+
+          #loststars-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #loststars-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #loststars-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* ShowYourSelf 팝업창 */
+          #showyourself-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #showyourself-pop.hide {
+            display: none;
+          }
+
+          #showyourself-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #showyourself-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #showyourself-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+          /* Start 팝업창 */
+          #start-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #start-pop.hide {
+            display: none;
+          }
+
+          #start-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #start-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54);
+          }
+          #start-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* TanjiroSong 팝업창 */
+          #tanjirosong-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #tanjirosong-pop.hide {
+            display: none;
+          }
+
+          #tanjirosong-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #tanjirosong-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #tanjirosong-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);;
+          }
+
+          p {
+              font-size: 40px;
+              text-align: center;
+              color: rgb(244, 201, 20)
+          }
         </style>
     </head>
-    <body style="background-color : #F4E6E5">
-        <p class="font">Mon Cher Tonton</p>
-        <div class="contents">
-            <button onclick="location.href='main.html'">main</button >
-            <button onclick="location.href='kpop.html'">kpop</button >
-            <button onclick="location.href='pop.html'">pop</button >
-            <button onclick="location.href='ost.html'">ost</button >
+    
+    <body>
+      <p class="font">Mon Cher Tonton</p>
+      <div class="contents">
+          <button onclick="location.href='main.html'">main</button >
+          <button onclick="location.href='kpop.html'">kpop</button >
+          <button onclick="location.href='pop.html'">pop</button >
+          <button onclick="location.href='ost.html'">ost</button >
+      </div>
+      
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openAWholeNewWorld() {
+          const popup = document.querySelector('#awholenewworld-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeAWholeNewWorld(){
+          const popup = document.querySelector('#awholenewworld-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openCloser()"><img src="picture/AWholeNewWorld.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id= "awholenewworld-pop" class="hide">
+        <div class="info">
+            <div class="lyrics">
+                I can show you the world<br>
+                Shining, shimmering, splendid<br>
+                Tell me, princess, now when did<br>
+                You last let your heart decide?<br>
+                I can open your eyes<br>
+                Take you wonder by wonder<br>
+                Over, sideways and under<br>
+                On a magic carpet ride<br><br>
+                A whole new world<br>
+                A new fantastic point of view<br>
+                No one to tell us, "No"<br>
+                Or where to go<br>
+                Or say we're only dreaming<br>
+                A whole new world<br>
+                A dazzling place I never knew<br>
+                But when I'm way up here<br>
+                It's crystal clear<br>
+                That now I'm in a whole new world with you<br>
+                (Now I'm in a whole new world with you)<br><br>
+                Unbelievable sights<br>
+                Indescribable feeling<br>
+                Soaring, tumbling, freewheeling<br>
+                Through an endless diamond sky<br><br>
+                A whole new world (don't you dare close your eyes)<br>
+                A hundred thousand things to see (hold your breath, it gets better)<br>
+                I'm like a shooting star, I've come so far<br>
+                I can't go back to where I used to be<br>
+                A whole new world<br>
+                With new horizons to pursue<br>
+                I'll chase them anywhere<br>
+                There's time to spare<br>
+                Let me share this whole new world with you<br><br>
+                A whole new world (a whole new world)<br>
+                A new fantastic point of view<br>
+                No one to tell us, "No"<br>
+                Or where to go<br>
+                Or say we're only dreaming<br>
+                A whole new world (every turn, a surprise)<br>
+                With new horizons to pursue (every moment, red-letter)<br>
+                I'll chase them anywhere, there's time to spare<br>
+                And then we're home (there's time to spare)<br>
+                Let me share this whole new world with you<br><br>
+                A whole new world (a whole new world)<br>
+                That's where we'll be (that's where we'll be)<br>
+                A thrilling chase (a wondrous place)<br>
+                For you and me<br><br>
+                <button class="close-btn" onclick="closeAWholeNewWorld()">닫기</button>
+            </div>
         </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openBeautifulInMyLife() {
+          const popup = document.querySelector('#beautifulinmyylife-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeBeautifulInMyLife(){
+          const popup = document.querySelector('#beautifulinmyylife-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openBeautifulInMyLife()"><img src="picture/BeautifulInMyLife.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="beautifulinmyylife-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                Don't walk away I'm falling down<br>
+                Don't walk away I'm falling down<br>
+                깊어져만 가는<br>
+                밤하늘 별빛은 여전히<br>
+                그 자리 그대를 기다리죠<br><br>
+                한참을 말하지 않아도<br>
+                그대 두 눈 들여다 보면<br>
+                나는 알아요 그대를 느끼죠<br><br>
+                햇살 안은 밤하늘 수평선 멀리<br>
+                그대의 별 되어 늘 그대를 지킬게요<br>
+                내 생에 가장 아름다운 시간들<br>
+                나 그댈위해 간직해온<br>
+                짙은 숨결 그대에게<br>
+                닿기를 바래요<br><br>
+                Don't walk away I'm falling down (ooh)<br>
+                Don't walk away I'm falling down<br>
+                점점 멀어지는<br>
+                한동안 그대 외로이<br>
+                힘없이 지나간 나날들<br>
+                나는 아파요 그대를 느끼죠<br><br>
+                햇살 안은 밤하늘 수평선 멀리<br>
+                그대의 별 되어 늘 그대를 지킬게요<br>
+                내 생에 가장 아름다운 시간들<br>
+                나 그댈 위해 간직해온<br>
+                짙은 숨결 전해지길<br>
+                바래요 오직 나 그대가<br><br>
+                내 맘 흐르는 하늘을 바라봐줘요<br>
+                한걸음 다가와 멀어지진 말아줘요<br>
+                하루 하루 같은 이곳에 남겨져<br>
+                나 그대에게 머물게요<br>
+                내 생에 가장 아름다운<br>
+                그대와 영원히<br><br>
+                Mm, Mm, Mm<br><br>
+            </div>
+            <button class="close-btn" onclick="closeBeautifulInMyLife()">닫기</button>
+          </div>
+      </div>
+      
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openCityOfStars() {
+          const popup = document.querySelector('#cityofstars-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeCityOfStars(){
+          const popup = document.querySelector('#cityofstars-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openEx()"><img src="picture/CityOfStars.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="cityofstars-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                City of stars, <br>
+                Are you shinning just for me?<br>
+                City of stars,<br>
+                There's so much that I can't see<br>
+                Who knows<br>
+                I felt it from the first embrace<br>
+                I shared with you<br><br>
+                That now, Our dreams,<br>
+                They've finally come true<br>
+                City of stars,<br>
+                Jus one thing everybody wants<br>
+                There in the bars and thorugh the smokescreen of the crowded restaurants<br>
+                It's love<br>
+                Yes, all we're looking for is love from someone else<br><br>
+                A rush<br>
+                A glance<br>
+                A touch<br>
+                A dance<br>
+                To look in somebody's eyes,<br>
+                To light up the skies,<br>
+                To open the world and send me reeling,<br>
+                A voice that says I'll be here<br>
+                and you'll be alright<br><br>
+                I don't care if I know just where I will go<br>
+                Cause all that I need is this crazy feeling<br>
+                And rat-a-tat of my heart<br><br>
+                I think I wnat it to stay<br>
+                City of stars,<br>
+                Are you shinning just for me?<br>
+                City of stars,<br><br>
+                You never shined so brightly<br><br>
+
+            </div>
+            <button class="close-btn" onclick="closeCityOfStars()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openDontWorry() {
+          const popup = document.querySelector('#dontworry-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeDontWorry(){
+          const popup = document.querySelector('#flodontworrywer-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openFlower()"><img src="picture/DontWorry.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="dontworry-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                그대여 아무 걱정 하지 말아요<br>
+                우리 함께 노래 합시다<br>
+                그대 아픈 기억들 모두 그대여<br>
+                그대 가슴에 깊이 묻어 버리고<br><br>
+                지나간 것은 지나간 대로<br>
+                그런 의미가 있죠<br>
+                떠난 이에게 노래 하세요<br>
+                후회없이 사랑했노라 말해요<br><br>
+                그대는 너무 힘든 일이 많았죠<br>
+                새로움을 잃어 버렸죠<br>
+                그대 슬픈 얘기들 모두 그대여<br>
+                그대 탓으로 훌훌 털어 버리고<br><br>
+                지나간 것은 지나간 대로<br>
+                그런 의미가 있죠<br>
+                우리 다 함께 노래 합시다<br>
+                후회없이 꿈을 꾸었다 말해요<br><br>
+                지나간 것은 지나간 대로<br>
+                그런 의미가 있죠<br>
+                우리 다 함께 노래 합시다<br>
+                후회없이 꿈을 꾸었다 말해요<br><br>
+                지나간 것은 지나간 대로<br>
+                그런 의미가 있죠<br>
+                우리 다 함께 노래 합시다<br>
+                후회없이 꿈을 꾸었다 말해요<br>
+                새로운 꿈을 꾸겠다 말해요<br><br>
+            </div>
+            <button class="close-btn" onclick="closeDontWorry()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openHey() {
+          const popup = document.querySelector('#hey-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeHey(){
+          const popup = document.querySelector('#hey-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openLostStars()"><img src="picture/Hey.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="hey-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                있잖아 좀 늦은 거 아는데<br>
+                해야 하는 말이 꼭 생겼어<br>
+                아직 거기 서있다면<br>
+                잠깐만 내 얘길 들어줄래<br><br>
+                두드리고 계속 두드렸던<br>
+                너를 왜 몰랐을까<br>
+                닫힌 내 마음 앞에 앉아<br>
+                날 기다린 것도 말야<br><br>
+                지금 나 하나도 괜찮지가 않아<br>
+                지금 널 이대로 그냥 잃어버릴까봐<br>
+                널 보던 내 눈도<br>
+                널 떠올리면 웃고 있던 내 입술도<br>
+                사랑이더라<br><br>
+                알잖아 보기엔 참 쉬운데<br>
+                내가 하면 얘기가 다른 거<br>
+                겨우 내 맘을 알았고<br>
+                내겐 아직 많이 어려운데<br><br>
+                근데 말야 나는 하고 싶어<br>
+                너랑 그 연애란 거<br>
+                사실 난 엄청 신경 쓰여<br>
+                너에 대한 모든 게 다<br><br>
+                지금 나 하나도 괜찮지가 않아<br>
+                지금 널 이대로 그냥 잃어버릴까봐<br>
+                널 보던 내 눈도<br>
+                널 떠올리면 웃고 있던 내 입술도<br>
+                사랑이더라<br>
+                딴 생각은 안 할 거야<br>
+                이 감정에만 이젠 솔직할게<br>
+                날 헷갈리게 만들던<br>
+                그 이유를 좀 알 것 같아<br><br>
+                궁금해 넌 어때 어서 대답해봐<br>
+                어떻게 생각해 지금 고백하는 거야<br>
+                널 사랑한다고<br>
+                가슴 벅차게 사랑하고 있다고<br>
+                나 요즘에 너 땜에 괜찮지가 않아<br><br>
+                지금 널 이대로 그냥 잃어버릴까봐<br>
+                널 보던 내 눈도<br>
+                널 떠올리며 웃고 있던 내 입술도<br>
+                사랑이더라<br><br>
+            </div>
+            <button class="close-btn" onclick="closeHey()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openHomura() {
+          const popup = document.querySelector('#homura-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeHomura(){
+          const popup = document.querySelector('#homura-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openHomura()"><img src="picture/Homura.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="homura-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                さよなら ありがとう 声の限り<br>
+                悲しみよりもっと大事なこと<br>
+                去りゆく背中に伝えたくて<br>
+                ぬくもりと痛みに間に合うように<br><br>
+                このまま続くと思っていた<br>
+                僕らの明日を描いていた<br>
+                呼び合っていた (呼び合っていた) 光がまだ (光が)<br>
+                胸の奥に熱いのに<br><br>
+                僕たちは燃え盛る旅の途中で出会い<br>
+                手を取りそして離した 未来のために<br>
+                夢が一つ叶うたび 僕は君を想うだろう<br>
+                強くなりたいと願い 泣いた 決意を餞に<br><br>
+                懐かしい思いに囚われたり<br>
+                残酷な世界に泣き叫んで<br>
+                大人になるほど増えて行く<br>
+                もう何一つだって失いたくない<br><br>
+                悲しみに飲まれ落ちてしまえば<br>
+                痛みを感じなくなるけれど<br>
+                君の言葉 (君の言葉) 君の願い<br>
+                僕は守りぬくと誓ったんだ<br><br>
+                Oh oh oh oh, oh oh oh oh<br>
+                音を立てて崩れ落ちて行く<br>
+                一つだけの (一つだけの)<br>
+                かけがえのない世界<br><br>
+                手を伸ばし抱き止めた激しい光の束<br>
+                輝いて消えてった 未来のために<br>
+                託された幸せと 約束を超えて行く<br>
+                振り返らずに進むから<br>
+                前だけ向いて叫ぶから<br>
+                心に炎を灯して<br>
+                遠い未来まで hey yeah ah ah ah<br><br>
+            </div>
+            <button class="close-btn" onclick="closeHomura()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openHyehwadong() {
+          const popup = document.querySelector('#hyehwadong-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeHyehwadong(){
+          const popup = document.querySelector('#hyehwadong-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openHyehwadong()"><img src="picture/Hyehwa-Dong.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="hyehwadong-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                오늘은 잊고 지내던<br>
+                친구에게서 전화가 왔네<br>
+                내일이면 멀리 떠나간다고<br><br>
+                
+                어릴 적 함께 뛰놀던<br>
+                골목길에서 만나자 하네<br>
+                내일이면 아주 멀리 간다고<br><br>
+                
+                덜컹거리는 전철을 타고<br>
+                찾아가는 그길<br>
+                우리는 얼마나 많은 것을<br>
+                잊고 살아가는지<br><br>
+                
+                어릴 적 넓게만<br>
+                보이던 좁은 골목길에<br>
+                다정한 옛 친구<br>
+                나를 반겨 달려 오는데<br>
+                어릴 적 함께 꿈꾸던<br>
+                부푼 세상을 만나자 하네<br>
+                내일이면 멀리 떠나간다고<br><br>
+                
+                언제가 돌아오는 날<br>
+                활짝 웃으며 만나자 하네<br>
+                내일이면 아주 멀리 간다고<br><br>
+                
+                덜컹거리는 전철을 타고<br>
+                찾아가는 그길<br>
+                우리는 얼마나 많은 것을<br>
+                잊고 살아가는지<br><br>
+                
+                어릴 적 넓게만 보이던<br>
+                좁은 골목길에<br>
+                다정한 옛 친구<br>
+                나를 반겨 달려 오는데<br><br>
+                
+                라라랄라라 랄라랄라라<br>
+                라랄랄라라라<br>
+                우린 얼마나 많은 것을<br>
+                잊고 살아가는지<br><br>
+            </div>
+            <button class="close-btn" onclick="closeHyehwadong()">닫기</button>
+          </div>
+      </div>
+      
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openISeeTheLight() {
+          const popup = document.querySelector('#iseethelight-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeISeeTheLight(){
+          const popup = document.querySelector('#iseethelight-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openISeeTheLight()"><img src="picture/ISeeTheLight.jfif" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="iseethelight-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                All those days watching from the windows<br>
+                All those years outside looking in<br>
+                All that time never even knowing<br>
+                Just how blind I've been<br>
+                Now I'm here blinking in the starlight<br>
+                Now I'm here suddenly I see<br>
+                Standing here it's all so clear<br>
+                I'm where I'm meant to be<br><br>
+                And at last I see the light<br>
+                And it's like the fog has lifted<br>
+                And at last I see the light<br>
+                And it's like the sky is new<br>
+                And it's warm and real and bright<br>
+                And the world has somehow shifted<br>
+                All at once everything looks different<br>
+                Now that I see you<br><br>
+                All those days chasing down a daydream<br>
+                All those years living in a blur<br>
+                All that time never truly seeing<br>
+                Things, the way they were<br>
+                Now she's here shining in the starlight<br>
+                Now she's here suddenly I know<br>
+                If she's here it's crystal clear<br>
+                I'm where I'm meant to go<br><br>
+                And at last I see the light<br><br>
+                And it's like the fog has lifted<br><br>
+                And at last I see the light<br><br>
+                And it's like the sky is new<br><br>
+                And it's warm and real and bright<br>
+                And the world has somehow shifted<br>
+                All at once everything is different<br>
+                Now that I see you<br><br>
+                Now that I see you<br><br>
+            </div>
+            <button class="close-btn" onclick="closeISeeTheLight()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openLostStars() {
+          const popup = document.querySelector('#loststars-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeLostStars(){
+          const popup = document.querySelector('#loststars-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openLostStars()"><img src="picture/LostStars.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="loststars-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              Please, don't see<br>
+              Just a boy caught up in dreams and fantasies<br>
+              Please, see me<br>
+              Reaching out for someone I can't see<br><br>
+              Take my hand<br>
+              Let's see where we wake up tomorrow<br>
+              Best laid plans<br>
+              Sometimes are just a one night stand<br>
+              I'll be damned<br><br>
+              Cupid's demanding back his arrow<br>
+              So let's get drunk on our tears<br>
+              And, God, tell us the reason<br>
+              Youth is wasted on the young<br>
+              It's hunting season and the lambs are on the run<br><br>
+              Searching for meaning<br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br>
+              Who are we?<br>
+              Just a speck of dust within the galaxy<br>
+              Woe is me<br><br>
+              If we're not careful turns into reality<br>
+              Don't you dare let our best memories bring you sorrow<br>
+              Yesterday I saw a lion kiss a deer<br>
+              Turn the page<br>
+              Maybe we'll find a brand new ending<br><br>
+              Where we're dancing in our tears<br>
+              And, God, tell us the reason<br>
+              Youth is wasted on the young<br>
+              It's hunting season<br>
+              And the lambs are on the run<br><br>
+              Searching for meaning<br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br><br>
+              And I thought I saw you out there crying<br>
+              And I thought I heard you call my name<br>
+              And I thought I heard you out there crying<br><br>
+              Just the same<br>
+              Oh yeah, yeah yeah yeah yeah<br>
+              God, give us the reason<br>
+              Youth is wasted on the young<br>
+              It's hunting season and this lamb is on the run<br><br>
+              Searching for meaning<br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br><br>
+              And I thought I saw you out there crying<br>
+              And I thought I heard you call my name<br>
+              And I thought I heard you out there crying<br><br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br><br>
+            </div>
+            <button class="close-btn" onclick="closeLostStars()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openShowYourSelf() {
+          const popup = document.querySelector('#showyourself-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeShowYourSelf(){
+          const popup = document.querySelector('#showyourself-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openShowYourSelf()"><img src="picture/ShowYourSelf.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="showyourself-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                Every inch of me is trembling<br>
+                But not from the cold<br>
+                Something is familiar<br>
+                Like a dream I can reach but not quite hold<br>
+                I can sense you there<br>
+                Like a friend I've always known<br>
+                I'm arriving<br>
+                And it feels like I am home<br><br>
+                I have always been a fortress<br>
+                Cold secrets deep inside<br>
+                You have secrets, too<br>
+                But you don't have to hide<br><br>
+                Show yourself<br>
+                I'm dying to meet you<br>
+                Show yourself<br>
+                It's your turn<br>
+                Are you the one I've been looking for<br>
+                All of my life?<br>
+                Show yourself<br>
+                I'm ready to learn<br><br>
+                Ah ah ah ah<br><br>
+                Ah ah ah ah ah<br><br>
+                I've never felt so certain<br>
+                All my life I've been torn<br>
+                But I'm here for a reason<br>
+                Could it be the reason I was born?<br>
+                I have always been so different<br>
+                Normal rules did not apply<br>
+                Is this the day?<br>
+                Are you the way<br>
+                I finally find out why?<br><br>
+                Show yourself<br>
+                I'm no longer trembling<br>
+                Here I am<br>
+                I've come so far<br>
+                You are the answer I've waited for<br>
+                All of my life<br>
+                Oh, show yourself<br>
+                Let me see who you are<br><br>
+                Come to me now<br>
+                Open your door<br>
+                Don't make me wait<br>
+                One moment more<br>
+                Oh, come to me now<br>
+                Open your door<br>
+                Don't make me wait<br>
+                One moment more<br><br>
+                Where the north wind meets the sea<br><br>
+                Ah ah ah ah<br><br>
+                There's a river<br><br>
+                Ah ah ah ah<br><br>
+                Full of memory<br><br>
+                Come, my darling, homeward bound<br><br>
+                I am found<br><br>
+                Show yourself<br>
+                Step into your power<br>
+                Throw yourself<br>
+                Into something new<br>
+                You are the one you've been waiting for<br><br>
+                All of my life<br><br>
+                All of your life<br><br>
+                Oh, show yourself<br><br>
+                Ah ah ah<br><br>
+                Ah ah ah<br><br>
+                Ah ah ah<br><br>
+            </div>
+            <button class="close-btn" onclick="closeShowYourSelf()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openStart() {
+          const popup = document.querySelector('#start-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeStart(){
+          const popup = document.querySelector('#start-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openStart()"><img src="picture/Start.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="start-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+                새로운 시작은 늘 설레게 하지<br>
+                모든 걸 이겨낼 것처럼<br>
+                시간을 뒤쫓는 시계바늘처럼<br>
+                앞질러 가고 싶어 하지<br><br>
+                그어 놓은 선을 넘어<br>
+                저마다 삶을 향해<br>
+                때론 원망도 하겠지<br>
+                그 선을 먼저 넘지 말라고<br><br>
+                I can fly the sky<br>
+                Never gonna stay<br>
+                내가 지쳐 쓰러질 때까진<br>
+                어떤 이유도<br>
+                어떤 변명도<br>
+                지금 내겐 용기가 필요해<br><br>
+                빛나지 않아도 내 꿈을 응원해<br>
+                그 마지막을 가질 테니<br>
+                부러진 것처럼 한 발로 뛰어도<br>
+                난 나의 길을 갈 테니까<br><br>
+                지금 나를 위한 약속<br>
+                멈추지 않겠다고<br>
+                또 하나를 앞지르면<br>
+                곧 너의 뒤를 따라잡겠지<br><br>
+                원하는 대로<br>
+                다 가질 거야<br>
+                그게 바로 내 꿈일 테니까<br>
+                변한 건 없어<br>
+                버티고 버텨<br>
+                내 꿈은 더 단단해질 테니<br>
+                다시 시작해<br>
+                Ah-ah-ah-ah-ah<br>
+                Ah-ah-ah-ah-ah-ah<br>
+                Ah-ah-ah-ah-ah<br>
+                Ah-ah-ah-ah<br><br>
+                다시는 나를 잃고 싶지 않아<br>
+                내 전부를 걸었으니까<br><br>
+                원하는 대로<br>
+                다 가질 거야<br>
+                그게 바로 내 꿈일 테니까<br>
+                변한 건 없어<br>
+                버티고 버텨<br>
+                내 꿈은 더 단단해질 테니<br>
+                다시 시작해<br>
+                Ah-ah-ah-ah-ah<br>
+                Ah-ah-ah-ah-ah-ah<br>
+                Ah-ah-ah-ah-ah<br>
+                Ah-ah-ah-ah<br><br>
+            </div>
+            <button class="close-btn" onclick="closeStart()">닫기</button>
+          </div>
+      </div>
+
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openTanjiroSong() {
+          const popup = document.querySelector('#tanjirosong-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeTanjiroSong(){
+          const popup = document.querySelector('#tanjirosong-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openTanjiroSong()"><img src="picture/TangiroSong.png" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="tanjirosong-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              目を閉じて　思い出す<br>
+              過ぎ去りし　あの頃の<br>
+              戻れない　帰れない<br>
+              広がった　深い闇<br><br>
+              戻れない　帰れない<br>
+              広がった　深い闇<br><br>
+              泣きたくなるような<br>
+              優し音<br>
+              どんなに苦しくても<br>
+              前へ　前へ　進め<br>
+              絶望断ち<br><br>
+              失っても　失っても<br>
+              生きていくしかない<br>
+              どんないうちのめされても<br>
+              守るものがある<br><br>
+              失っても　失っても<br>
+              生きていくしかない<br>
+              どんなにうちのめされても<br>
+              守るものがある<br><br>
+              我に貸す　一択の<br>
+              運命と　覚悟する<br>
+              泥を舐め　足買い手も<br>
+              目に見えぬ　細い糸<br><br>
+              泣きたくなるような<br>
+              優し音<br>
+              どんなに苦しくても<br>
+              前へ　前へ　向かえ<br>
+              絶望断ち<br><br>
+              傷ついても　傷ついても<br>
+              立ち上がるしかない<br>
+              どんなにうちのめされとも<br>
+              守るものがある<br><br>
+            </div>
+            <button class="close-btn" onclick="closeTanjiroSong()">닫기</button>
+          </div>
+      </div>
     </body>
 </html>
