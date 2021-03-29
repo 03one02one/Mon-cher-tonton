@@ -1,49 +1,1482 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang = "ko">
     <head>
         <meta charset="UTF-8">
-        <meta name = "viewport" content="width=device=width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Beau voyage</title>
         <style media="screen">
-            @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+          
+          body {
+              padding: 40px;
+              background-color: rgb(68, 63, 54);
+          }
 
-            body {
-                padding: 40px;
-                background-color: #F4E6E5;
-            }
+          button {
+            cursor: pointer;
+          }
 
-            .font {
-                font-family: 'Permanent Marker', cursive;
-            }
-            .contents button {
-                margin-left: 240px;
-                border-radius: 5px;
-                border: 1px solid #F4E6E5;
-                background-color: rgba(0, 0, 0, 0);
-                color: rgb(158, 95, 253);
-                font-size: 20px;
-                padding: 5px;
-            }
-            .contents button:hover {
-                color: rgb(255, 206, 81);
-                background-color: rgb(158, 95, 253);
-            }
+          .font {
+              font-family: 'Permanent Marker', cursive;
+          }
+          
+          .contents button {
+              margin-left: 325px;
+              border-radius: 5px;
+              border: 1px solid rgb(68, 63, 54);
+              background-color: rgba(0, 0, 0, 0);
+              color:  rgb(148, 51, 187);
+              font-size: 20px;
+              padding: 5px;
+          }
 
-            p {
-                font-size: 40px;
-                text-align: center;
-                color: rgb(24, 218, 210)
-            }
+          .contents button:hover {
+              color: rgb(115, 174, 10);
+              background-color: rgb(148, 51, 187);
+          }
+
+          .album-btn button {
+              width: 350px;
+              height: 350px;
+              border: none;
+              background-color: #FFFFFF;
+          }
+
+          .btn {
+              margin-top: 150px;
+              margin-left: 90px;
+              border: 0;
+              padding: 0px;
+              background: rgb(68, 63, 54);
+          }
+
+          .not-scroll {
+            overflow: hidden;
+          }
+          
+          /* closer 팝업창 */
+          #closer-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #closer-pop.hide {
+            display: none;
+          }
+
+          #closer-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #closer-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #closer-pop .close-btn {
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* comeoutandplay 팝업창 */
+          #comeoutandplay-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #comeoutandplay-pop.hide {
+            display: none;
+          }
+
+          #comeoutandplay-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #comeoutandplay-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #comeoutandplay-pop .close-btn {
+            text-align: center;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* ex 팝업창 */
+          #ex-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #ex-pop.hide {
+            display: none;
+          }
+
+          #ex-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #ex-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #ex-pop .close-btn {
+            text-align: center;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* Flower 팝업창 */
+          #flower-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #flower-pop.hide {
+            display: none;
+          }
+
+          #flower-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #flower-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #flower-pop .close-btn {
+            text-align: center;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* LostStars 팝업창 */
+          #loststars-pop {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #loststars-pop.hide {
+            display: none;
+          }
+
+          #loststars-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #loststars-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #loststars-pop .close-btn {
+            text-align: center;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* OceanEyes 팝업창 */
+          #oceaneyes-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #oceaneyes-pop.hide {
+            display: none;
+          }
+
+          #oceaneyes-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #oceaneyes-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #oceaneyes-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* OneCallAway 팝업창 */
+          #onecallaway-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #onecallaway-pop.hide {
+            display: none;
+          }
+
+          #onecallaway-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #onecallaway-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #onecallaway-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* Snowman 팝업창 */
+          #snowman-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #snowman-pop.hide {
+            display: none;
+          }
+
+          #snowman-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #snowman-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #snowman-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+          /* Tango 팝업창 */
+          #tango-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #tango-pop.hide {
+            display: none;
+          }
+
+          #tango-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #tango-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54);
+          }
+          #tango-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* ThisCity 팝업창 */
+          #thiscity-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #thiscity-pop.hide {
+            display: none;
+          }
+
+          #thiscity-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #thiscity-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #thiscity-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);;
+          }
+
+          /* WhenWeWereYoung 팝업창 */
+          #whenwewereyoung-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #whenwewereyoung-pop.hide {
+            display: none;
+          }
+
+          #whenwewereyoung-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #whenwewereyoung-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #whenwewereyoung-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          /* Youth 팝업창 */
+          #youth-pop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+          }
+
+          #youth-pop.hide {
+            display: none;
+          }
+
+          #youth-pop .info {
+            padding: 20px;
+            width: 380px;
+            height: 660px;
+            background: rgb(255, 252, 231);
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+            overflow-y: scroll;
+          }
+          #youth-pop .lyrics {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(68, 63, 54)
+          }
+          #youth-pop .close-btn {
+            text-align: right;
+            background: rgb(255, 252, 231);
+            border: 0;
+            color:rgb(148, 51, 187);
+          }
+
+          p {
+              font-size: 40px;
+              text-align: center;
+              color: rgb(244, 201, 20)
+          }
         </style>
     </head>
-    <body style="background-color : #F4E6E5">
-        <p class="font">Mon Cher Tonton</p>
-        <div class="contents">
-            <button onclick="location.href='main.html'">main</button >
-            <button onclick="location.href='kpop.html'">kpop</button >
-            <button onclick="location.href='pop.html'">pop</button >
-            <button onclick="location.href='ost.html'">ost</button >
+    
+    <body>
+      <p class="font">Mon Cher Tonton</p>
+      <div class="contents">
+          <button onclick="location.href='main.html'">main</button >
+          <button onclick="location.href='kpop.html'">kpop</button >
+          <button onclick="location.href='pop.html'">pop</button >
+          <button onclick="location.href='ost.html'">ost</button >
+      </div>
+      
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openCloser() {
+          const popup = document.querySelector('#closer-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeCloser(){
+          const popup = document.querySelector('#closer-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openCloser()"><img src="picture/Closer.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id= "closer-pop" class="hide">
+        <div class="info">
+            <div class="lyrics">
+              Hey, I was doing just fine before I met you<br>
+              I drink too much, and that's an issue, but I'm okay<br>
+              Hey, you tell your friends it was nice to meet them<br>
+              But I hope I never see them again<br><br>
+              I know it breaks your heart<br>
+              Moved to the city in a broke-down car, and<br>
+              Four years, no calls<br>
+              Now you're looking pretty in a hotel bar, and<br>
+              I-I-I can't stop<br>
+              No, I-I-I can't stop<br><br>
+              So, baby, pull me closer<br>
+              In the back seat of your Rover<br>
+              That I know you can't afford<br>
+              Bite that tattoo on your shoulder<br><br>
+              Pull the sheets right off the corner<br>
+              Of that mattress that you stole<br>
+              From your roommate back in Boulder<br>
+              We ain't ever getting older<br><br>
+              We ain't ever getting older<br>
+              We ain't ever getting older<br><br>
+              You look as good as the day I met you<br>
+              I forget just why I left you, I was insane<br>
+              Stay and play that Blink-182 song<br>
+              That we beat to death in Tucson, okay<br><br>
+              I know it breaks your heart<br>
+              Moved to the city in a broke-down car, and<br>
+              Four years, no call<br>
+              Now I'm looking pretty in a hotel bar, and<br>
+              I-I-I can't stop<br>
+              No, I-I-I can't stop<br><br>
+              So, baby, pull me closer<br>
+              In the back seat of your Rover<br>
+              That I know you can't afford<br>
+              Bite that tattoo on your shoulder<br><br>
+              Pull the sheets right off the corner<br>
+              Of that mattress that you stole
+              From your roommate back in Boulder<br>
+              We ain't ever getting older<br><br>
+              We ain't ever getting older<br>
+              We ain't ever getting older<br><br>
+              So, baby, pull me closer<br>
+              In the back seat of your Rover<br>
+              That I know you can't afford<br>
+              Bite that tattoo on your shoulder<br><br>
+              Pull the sheets right off the corner<br>
+              Of that mattress that you stole<br>
+              From your roommate back in Boulder<br>
+              We ain't ever getting older<br><br>
+              We ain't ever getting older<br>
+              No, we ain't ever getting older<br>
+              We ain't ever getting older<br>
+              No, we ain't ever getting older<br><br>
+              We ain't ever getting older<br>
+              We ain't ever getting older<br>
+              We ain't ever getting older<br>
+              No, we ain't ever getting older<br><br>
+              We ain't ever getting older<br>
+              No, we ain't ever getting older<br><br>
+                <button class="close-btn" onclick="closeCloser()">닫기</button>
+            </div>
         </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openComeOutAndPlay() {
+          const popup = document.querySelector('#comeoutandplay-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeComeOutAndPlay(){
+          const popup = document.querySelector('#comeoutandplay-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openComeOutAndPlay()"><img src="picture/ComeOutAndPlay.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="comeoutandplay-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              Hmm-mmm<br><br>
+              Wake up and smell the coffee<br>
+              Is your cup half full or empty?<br>
+              When we talk, you say it softly<br>
+              But I love it when you're awfully quiet<br>
+              (Hmm-mmm, quiet)<br>
+              (Hmm-mmm)<br><br>
+              You see the piece of paper<br>
+              Could be a little greater<br>
+              Show me what you could make her<br>
+              You'll never know until you try it<br>
+              (Hmm-mmm)<br>
+              And you don't have to keep it quiet<br><br>
+              And I know it makes you nervous<br>
+              But I promise you, it's worth it<br>
+              To show 'em everything you kept inside<br>
+              Don't hide, don't hide<br>
+              Too shy to say, but I hope you stay<br>
+              Don't hide away<br>
+              Come out and play<br><br>
+              Look up, out of your window<br>
+              See snow, won't let it in though<br>
+              Leave home, feel the wind blow<br>
+              'Cause it's colder here inside in silence<br>
+              And you don't have to keep it quiet<br><br>
+              Yeah, I know it makes you nervous<br>
+              But I promise you, it's worth it<br>
+              To show 'em everything you kept inside<br>
+              Don't hide, don't hide<br>
+              Too shy to say, but I hope you stay<br>
+              Don't hide away<br>
+              Come out and play<br><br>
+            </div>
+            <button class="close-btn" onclick="closeComeOutAndPlay()">닫기</button>
+          </div>
+      </div>
+      
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openEx() {
+          const popup = document.querySelector('#ex-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeEx(){
+          const popup = document.querySelector('#ex-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openEx()"><img src="picture/Ex.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="ex-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              Hey, hm<br>
+              We went from 2 AM calls to zero communication, yeah<br>
+              We spent too long in heaven that<br>
+              We felt the elevation<br>
+              Just 'cause it's different and we're not the same<br>
+              Doesn't mean things have to change<br>
+              I got no trouble with my pride, got trouble cutting ties<br><br>
+              I don't wanna be your ex<br>
+              We way too good at being friends<br>
+              Can we still hangout<br>
+              On the low, get wild<br>
+              I don't wanna be your, I don't wanna be your<br>
+              Hit ya girl up with a text, when you're alone and feeling stressed<br>
+              I don't gotta be in love with you, to love you<br>
+              I don't wanna be your, so don't treat me like your<br>
+              E-e-e-e, e-e-ex<br>
+              I don't want to be your<br>
+              E-e-e-e, e-e-ex<br><br>
+              Let's skip the awkward run-ins, or<br>
+              Pretending like we're strangers<br>
+              And get back to how we started, yeah<br>
+              Don't pour water on fire<br>
+              Just 'cause it's different and we're not the same<br>
+              Doesn't mean things have to change<br>
+              I got no trouble with my pride, got trouble cutting ties<br><br>
+              I don't wanna be your ex<br>
+              We way too good at being friends<br>
+              Can we still hangout<br>
+              On the low, get wild<br>
+              I don't wanna be your, I don't wanna be your<br>
+              Hit ya girl up with a text, when you're alone and feeling stressed<br>
+              I don't gotta be in love with you, to love you<br>
+              I don't wanna be your, so don't treat me like your<br>
+              E-e-e-e, e-e-ex<br>
+              I don't want to be your<br>
+              E-e-e-e, e-e-ex<br><br>
+              Don't act like I don't care for you<br>
+              'Cause you know I'd always be there for you<br>
+              Don't act like I don't care for ya<br>
+              'Cause you know I'd always be there for you<br>
+              I don't want to be your ex<br>
+              We're way too good at being friends<br>
+              Can we still hangout on the low get wild<br>
+              I don't want to be your, I don't want to be your<br><br>
+              I don't wanna be your ex<br>
+              We way too good at being friends<br>
+              Can we still hangout<br>
+              On the low, get wild<br>
+              I don't wanna be your, I don't wanna be your<br>
+              Hit ya girl up with a text, when you're alone and feeling stressed<br>
+              I don't gotta be in love with you, to love you<br>
+              I don't wanna be your, so don't treat me like your<br>
+              E-e-e-e, e-e-ex<br>
+              I don't want to be your<br>
+              E-e-e-e, e-e-ex<br>
+              E-e-e-e, e-e-ex<br>
+              I don't want to be your<br>
+              E-e-e-e, e-e-ex<br><br>
+            </div>
+            <button class="close-btn" onclick="closeEx()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openFlower() {
+          const popup = document.querySelector('#flower-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeFlower(){
+          const popup = document.querySelector('#flower-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openFlower()"><img src="picture/Flower.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="flower-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              You can open up to me<br>
+              Show me what's inside<br>
+              Mother nature made us to intertwine<br>
+              Lavender elixir so<br>
+              Full of pheromones<br>
+              Gimme one taste and you're gone<br><br>
+              What if I can't get you out of my thoughts?<br>
+              What if my seasons don't change?<br>
+              What if you forget to forget me not<br>
+              And we fade away<br><br>
+              You're my little flower<br>
+              Blooming in the night<br>
+              Only for an hour<br>
+              The northern lights<br>
+              My casablanca sweetheart<br>
+              Nectar so divine<br>
+              Baby you're the best part<br>
+              Of my life<br><br>
+              What can I do?<br>
+              What can I say?<br>
+              To convince you<br>
+              To stay<br><br>
+              All I see are tulips and<br>
+              I'm a hummingbird<br>
+              Heavenly ambrosia in every curve<br>
+              Honey dripping over my imagination<br>
+              The fragrance<br>
+              Keeps flowing straight down to my soul<br><br>
+              What if I can't get you out of my thoughts?<br>
+              What if my seasons don't change?<br>
+              What if you love me then you love me not?<br>
+              And we fade away<br><br>
+              You're my little flower<br>
+              Blooming in the night<br>
+              Only for an hour<br>
+              The northern lights<br>
+              My casablanca sweetheart<br>
+              Nectar so divine<br>
+              Baby you're the best part<br>
+              Of my life<br><br>
+              What can I do?<br>
+              What can I say?<br>
+              To convince you<br>
+              To stay?<br><br>
+              Yeah, ohh, yeah, ohh<br>
+              Yeah, ohh, yeah, ohh<br><br>
+            </div>
+            <button class="close-btn" onclick="closeFlower()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openLostStars() {
+          const popup = document.querySelector('#loststars-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeLostStars(){
+          const popup = document.querySelector('#loststars-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openLostStars()"><img src="picture/LostStars.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="loststars-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              Please, don't see<br>
+              Just a boy caught up in dreams and fantasies<br>
+              Please, see me<br>
+              Reaching out for someone I can't see<br><br>
+              Take my hand<br>
+              Let's see where we wake up tomorrow<br>
+              Best laid plans<br>
+              Sometimes are just a one night stand<br>
+              I'll be damned<br><br>
+              Cupid's demanding back his arrow<br>
+              So let's get drunk on our tears<br>
+              And, God, tell us the reason<br>
+              Youth is wasted on the young<br>
+              It's hunting season and the lambs are on the run<br><br>
+              Searching for meaning<br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br>
+              Who are we?<br>
+              Just a speck of dust within the galaxy<br>
+              Woe is me<br><br>
+              If we're not careful turns into reality<br>
+              Don't you dare let our best memories bring you sorrow<br>
+              Yesterday I saw a lion kiss a deer<br>
+              Turn the page<br>
+              Maybe we'll find a brand new ending<br><br>
+              Where we're dancing in our tears<br>
+              And, God, tell us the reason<br>
+              Youth is wasted on the young<br>
+              It's hunting season<br>
+              And the lambs are on the run<br><br>
+              Searching for meaning<br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br><br>
+              And I thought I saw you out there crying<br>
+              And I thought I heard you call my name<br>
+              And I thought I heard you out there crying<br><br>
+              Just the same<br>
+              Oh yeah, yeah yeah yeah yeah<br>
+              God, give us the reason<br>
+              Youth is wasted on the young<br>
+              It's hunting season and this lamb is on the run<br><br>
+              Searching for meaning<br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br><br>
+              And I thought I saw you out there crying<br>
+              And I thought I heard you call my name<br>
+              And I thought I heard you out there crying<br><br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br>
+              But are we all lost stars<br>
+              Trying to light up the dark?<br><br>
+            </div>
+            <button class="close-btn" onclick="closeLostStars()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openOceanEyes() {
+          const popup = document.querySelector('#oceaneyes-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeOceanEyes(){
+          const popup = document.querySelector('#oceaneyes-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openOceanEyes()"><img src="picture/OceanEyes.jfif" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="oceaneyes-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              I've been watchin' you for some time<br>
+              Can't stop starin' at those ocean eyes<br>
+              Burning cities and napalm skies<br>
+              Fifteen flares inside those ocean eyes<br>
+              Your ocean eyes<br><br>
+              No fair<br>
+              You really know how to make me cry<br>
+              When you gimme those ocean eyes<br>
+              I'm scared<br>
+              I've never fallen from quite this high<br>
+              Fallin' into your ocean eyes<br>
+              Those ocean eyes<br><br>
+              I've been walkin' through a world gone blind<br>
+              Can't stop thinkin' of your diamond mind<br>
+              Careful creature made friends with time<br>
+              He left her lonely with a diamond mind<br>
+              And those ocean eyes<br><br>
+              No fair<br>
+              You really know how to make me cry<br>
+              When you gimme those ocean eyes<br>
+              I'm scared<br>
+              I've never fallen from quite this high<br>
+              Fallin' into your ocean eyes<br>
+              Those ocean eyes<br><br>
+              Da, da-da, da-da<br>
+              Da-da-da, da, da<br>
+              Da, da, da, da, da-da-da-da<br>
+              Mm<br>
+              Mm<br>
+              Mm<br><br>
+              No fair<br>
+              You really know how to make me cry<br>
+              When you gimme those ocean eyes<br>
+              I'm scared<br>
+              I've never fallen from quite this high<br>
+              Fallin' into your ocean eyes<br>
+              Those ocean eyes<br><br>
+            </div>
+            <button class="close-btn" onclick="closeOceanEyes()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openOneCallAway() {
+          const popup = document.querySelector('#onecallaway-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeOneCallAway(){
+          const popup = document.querySelector('#onecallaway-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openOneCallAway()"><img src="picture/OneCallAway.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="onecallaway-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              I'm only one call away<br>
+              I'll be there to save the day<br>
+              Superman got nothing on me<br>
+              I'm only one call away<br><br><br>
+              Call me, baby, if you need a friend<br>
+              I just wanna give you love<br>
+              C'mon, c'mon, c'mon<br>
+              Reaching out to you, so take a chance<br><br>
+              No matter where you go, know you're not alone<br>
+              I'm only one call away<br><br>
+              I'll be there to save the day<br>
+              Superman got nothing on me<br>
+              I'm only one call away<br>
+              Come along with me and don't be scared<br><br>
+              I just wanna set you free<br>
+              C'mon, c'mon, c'mon<br>
+              You and me can make it up, anyway<br>
+              For now, we can stay here for a while<br>
+              Cause you know, I just wanna see your smile<br>
+              No matter where you go, know you're not alone<br><br>
+              I'm only one call away<br>
+              I'll be there to save the day<br><br>
+              Superman got nothing on me<br>
+              I'm only one call away<br>
+              When you're weak I'll be strong<br>
+              I'm gonna keep holding on<br><br>
+              Now don't you worry, it won't be long<br>
+              Darling, if you feel like hope is gone<br>
+              Just run into my arms<br>
+              I'm only one call away<br>
+              I'll be there to save the day<br>
+              Superman got nothing on me<br>
+              I'm only one, I'm only one call away<br>
+              I'm only one call away<br>
+              I'll be there to save the day<br>
+              Superman got nothing on me<br>
+              I'm only one call away<br>
+              I'm only one call away<br><br>
+            </div>
+            <button class="close-btn" onclick="closeOneCallAway()">닫기</button>
+          </div>
+      </div>
+      
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openSnowman() {
+          const popup = document.querySelector('#snowman-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeSnowman(){
+          const popup = document.querySelector('#snowman-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openSnowman()"><img src="picture/Snowman.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="snowman-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              Youngblood thinks there's always tomorrow<br>
+              I miss your touch some nights when I'm hollow<br>
+              I know you cross the bridge that I can't follow<br><br>
+              Since the love that you left is all that I get<br>
+              I want you to know that<br><br>
+              If I can't be close to you<br>
+              I'll settle for the ghost of you<br>
+              I miss you more than life (more than life)<br>
+              And if you can't be next to me<br>
+              Your memory is ecstasy<br>
+              I miss you more than life<br>
+              I miss you more than life<br><br>
+              Youngblood thinks there's always tomorrow<br>
+              I need more time, but time can't be borrowed<br>
+              I'd leave it all behind if I could follow<br><br>
+              Since the love that you left is all that I get<br>
+              I want you to know that<br><br>
+              If I can't be close to you<br>
+              I'll settle for the ghost of you<br>
+              I miss you more than life (yeah)<br>
+              And if you can't be next to me<br>
+              Your memory is ecstasy (oh)<br>
+              I miss you more than life<br>
+              I miss you more than life<br><br>
+              So If I can't be close to you<br>
+              I'll settle for the ghost of you<br>
+              I miss you more than life<br>
+              And if you can't be next to me<br>
+              Your memory is ecstasy<br>
+              I miss you more than life<br>
+              I miss you more than life<br><br>
+            </div>
+            <button class="close-btn" onclick="closeSnowman()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openTango() {
+          const popup = document.querySelector('#tango-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeTango(){
+          const popup = document.querySelector('#tango-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+       <button class="btn" onclick="openTango()"><img src="picture/Tango.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="tango-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              You think I can't handle<br>
+              Dancing on my own<br>
+              It takes two to tango<br>
+              But only one to let go<br>
+              I'm sorry I can't answer<br>
+              I'm busy dancing on my own<br>
+              It takes two to tango<br>
+              But only one to let go<br><br>
+              I let you say your piece<br>
+              And toss a key so you can leave<br>
+              I'm laying on the comfy sheets<br>
+              Playing these games<br>
+              Had to look through all the process<br>
+              Praying for some different problems<br>
+              I know it's not that deep but all I can say is<br><br>
+              I'm doing fine<br>
+              Thought you should know<br>
+              Stretching my legs without you<br>
+              I'm doing fine<br>
+              Thought you should know<br>
+              I'm alright<br><br>
+              You think I can't handle<br>
+              Dancing on my own<br>
+              It takes two to tango<br>
+              But only one to let go<br>
+              I'm sorry I can't answer<br>
+              I'm busy dancing on my own<br>
+              It takes two to tango<br>
+              But only one to let go<br><br>
+              I cursed you out<br>
+              You pissed me off<br>
+              Threw a kiss, I bit you off<br>
+              And no I won't pick up your calls<br>
+              I'm busy today<br>
+              Damn this shit just got so toxic<br>
+              Don't think I took out no actions<br>
+              I know that it's not that deep<br>
+              But all I can say is<br><br>
+              I'm doing fine<br>
+              Thought you should know<br>
+              Stretching my legs without you<br>
+              I'm doing fine<br>
+              Thought you should know<br>
+              I'm alright<br><br>
+              You think I can't handle<br>
+              Dancing on my own<br>
+              It takes two to tango<br>
+              But only one to let go<br>
+              I'm sorry I can't answer<br>
+              I'm busy dancing on my own<br>
+              It takes two to tango<br>
+              But only one to let go<br><br>
+              Running low on fuel<br>
+              Running low on juice<br>
+              I been taking L's from left to right to middle<br>
+              Oh, how did shit just get so toxic<br>
+              Running low on fuel<br>
+              Running low on juice<br>
+              I been taking L's from left to right to middle<br>
+              Don't think I ain't got no options<br><br>
+              You think I can't handle<br>
+              Dancing on my own<br>
+              It takes two to tango<br>
+              But only one to let go<br><br>
+            </div>
+            <button class="close-btn" onclick="closeTango()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openThisCity() {
+          const popup = document.querySelector('#thiscity-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeThisCity(){
+          const popup = document.querySelector('#thiscity-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openThisCity()"><img src="picture/ThisCity.png" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="thiscity-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              I've been seeing lonely people in crowded rooms<br>
+              Covering their old heartbreaks with new tattoos<br>
+              It's all about smoke screens and cigarettes<br>
+              Looking through low lights at silhouettes<br>
+              But all I see is lonely people in crowded rooms<br><br>
+              This city's gonna break my heart<br>
+              This city's gonna love me then leave me alone<br>
+              This city's got me chasing stars<br>
+              It's been a couple months since I felt like I'm home<br>
+              Am I getting closer to knowing where I belong?<br>
+              This city's gonna break my heart<br>
+              She's always gonna break your heart, oh<br><br>
+              I remember mornings when my head didn't hurt<br>
+              And I remember nights when art didn't feel like work<br>
+              She wakes up at noon and she's out 'til three<br>
+              She leaves her perfume all over me<br>
+              But I remember mornings when my head didn't hurt<br><br>
+              Oh, this city's gonna break my heart (it's gonna break my heart)<br>
+              This city's gonna love me then leave me alone<br>
+              This city's got me chasing stars (got me chasing stars)<br>
+              It's been a couple months since I felt like I'm home (oh)<br>
+              Am I getting closer to knowing where I belong?<br>
+              This city's gonna break my heart<br>
+              She's always gonna break your heart<br><br>
+              Ooh-ooh-ooh, ooh, ooh, ooh, ooh, oh<br>
+              Ooh-ooh-ooh, ooh, ooh, ooh, ooh<br><br>
+              She got a hold on me<br>
+              She got me wrapped 'round her finger<br>
+              She got a hold on me<br>
+              She got me wrapped 'round her finger<br><br>
+              This city's gonna break my heart (oh, yeah)<br>
+              This city's gonna love me then leave me alone (it's gonna love me then leave me alone)<br>
+              This city's got me chasing stars (oh)<br>
+              It's been a couple months since I felt like I'm home<br>
+              Am I getting closer to knowing where I belong?<br>
+              This city's gonna break my heart (hey, yeah)<br>
+              She's always gonna break your heart<br><br>
+              Ooh-ooh-ooh, ooh, ooh, ooh, ooh, yeah<br>
+              Ooh-ooh-ooh, ooh, ooh, ooh, ooh, oh<br><br>
+              This city's gonna break my heart, hey<br>
+              She's always gonna break your heart<br><br>
+            </div>
+            <button class="close-btn" onclick="closeThisCity()">닫기</button>
+          </div>
+      </div>
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openWhenWeWereYoung() {
+          const popup = document.querySelector('#whenwewereyoung-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeWhenWeWereYoung(){
+          const popup = document.querySelector('#whenwewereyoung-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openWhenWeWereYoung()"><img src="picture/WhenWeWereYoung.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="whenwewereyoung-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              Everybody loves the things you do<br>
+              From the way you talk<br>
+              To the way you move<br>
+              Everybody here is watching you<br>
+              'Cause you feel like home<br>
+              You're like a dream come true<br><br>
+              But if by chance you're here alone<br>
+              Can I have a moment?<br>
+              Before I go?<br>
+              'Cause I've been by myself all night long<br>
+              Hoping you're someone I used to know<br><br>
+              You look like a movie<br>
+              You sound like a song<br>
+              My God this reminds me, of when we were young<br><br>
+              Let me photograph you in this light<br>
+              In case it is the last time<br>
+              That we might be exactly like we were<br>
+              Before we realized<br>
+              We were scared of getting old<br>
+              It made us restless<br>
+              It was just like a movie<br>
+              It was just like a song<br><br>
+              I was so scared to face my fears<br>
+              Nobody told me that you'd be here<br>
+              And I'd swear you moved overseas<br>
+              That's what you said, when you left me<br><br>
+              You still look like a movie<br>
+              You still sound like a song<br>
+              My God, this reminds me, of when we were young<br><br>
+              Let me photograph you in this light<br>
+              In case it is the last time<br>
+              That we might be exactly like we were<br>
+              Before we realized<br><br>
+              We were sad of getting old<br>
+              It made us restless<br>
+              It was just like a movie<br>
+              It was just like a song<br><br>
+              When we were young<br>
+              (When we were young)<br>
+              When we were young<br>
+              (When we were young)<br><br>
+              It's hard to win me back<br>
+              Everything just takes me back<br>
+              To when you were there<br>
+              To when you were there<br><br>
+              And a part of me keeps holding on<br>
+              Just in case it hasn't gone<br>
+              I guess I still care<br>
+              Do you still care?<br><br>
+              It was just like a movie<br>
+              It was just like a song<br>
+              My God, this reminds me<br>
+              Of when we were young<br><br>
+              When we were young<br>
+              (When we were young)<br>
+              When we were young<br>
+              (When we were young)<br><br>
+              Let me photograph you in this light<br>
+              In case it is the last time<br>
+              That we might be exactly like we were<br>
+              Before we realized<br>
+              We were sad of getting old<br><br>
+              It made us restless<br>
+              Oh I'm so mad I'm getting old<br>
+              It makes me reckless<br><br>
+              It was just like a movie<br>
+              It was just like a song<br>
+              When we were young<br><br>
+            </div>
+            <button class="close-btn" onclick="closeWhenWeWereYoung()">닫기</button>
+          </div>
+      </div>
+
+
+      <script>
+        function toggle() {
+          let body = document.getElementsByTagName('body')[0];
+          body.classList.toggle("not-scroll");
+          popup();
+        }
+
+        function openYouth() {
+          const popup = document.querySelector('#youth-pop');
+            popup.classList.remove('hide');
+            body.classList.add("not-scroll");
+            body.insertAdjacentHTML('afterend',modalHtml);
+        }
+        function closeYouth(){
+          const popup = document.querySelector('#youth-pop');
+              popup.classList.add('hide');
+            body.classList.remove("not-scroll");
+            modal.remove();
+        }
+      </script>
+      <button class="btn" onclick="openYouth()"><img src="picture/Youth.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="youth-pop" class="hide">
+          <div class="info">
+            <div class="lyrics">
+              What if<br>
+              What if we run away<br>
+              What if<br>
+              What if we left today<br>
+              What if<br>
+              We said goodbye to safe and sound<br>
+              What if<br>
+              What if we're hard to find<br>
+              What if<br>
+              What if we lost our minds<br>
+              What if<br>
+              We let them fall behind, and they're never found<br><br>
+              And when the lights start flashing like a photo booth<br>
+              And the stars exploding<br>
+              We'll be fireproof<br><br>
+              My youth<br>
+              My youth is yours<br>
+              Trippin' on skies, sippin' waterfalls<br>
+              My youth<br>
+              My youth is yours<br>
+              Run away now and forevermore<br>
+              My youth<br>
+              My youth is yours<br>
+              The truth so loud you can't ignore<br>
+              My youth, my youth, my youth<br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              What if<br>
+              What if we start to drive<br>
+              What if<br>
+              What if we close our eyes<br>
+              What if<br>
+              We're speeding through red lights into paradise<br>
+              'Cause we've no time for getting old<br>
+              Mortal bodies, timeless souls<br>
+              Cross your fingers, here we go<br>
+              Oh, oh, oh<br><br>
+              My youth<br>
+              My youth is yours<br>
+              Trippin' on skies, sippin' waterfalls<br>
+              My youth<br>
+              My youth is yours<br>
+              Run away now and forevermore<br>
+              My youth<br>
+              My youth is yours<br>
+              The truth so loud you can't ignore<br>
+              My youth, my youth, my youth<br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+              My youth is yours<br><br>
+            </div>
+            <button class="close-btn" onclick="closeYouth()">닫기</button>
+          </div>
+      </div>
     </body>
 </html>
