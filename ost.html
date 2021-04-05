@@ -131,8 +131,8 @@
             color:rgb(148, 51, 187);
           }
 
-          /* CityOfStars 팝업창 */
-          #cityofstars-pop {
+          /* KaiKaiKitan 팝업창 */
+          #kaikaikitan-pop {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -146,11 +146,11 @@
             z-index: 1;
           }
 
-          #cityofstars-pop.hide {
+          #kaikaikitan-pop.hide {
             display: none;
           }
 
-          #cityofstars-pop .info {
+          #kaikaikitan-pop .info {
             padding: 20px;
             width: 380px;
             height: 660px;
@@ -159,12 +159,12 @@
             box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
             overflow-y: scroll;
           }
-          #cityofstars-pop .lyrics {
+          #kaikaikitan-pop .lyrics {
             font-size: 13px;
             text-align: center;
             color: rgb(68, 63, 54)
           }
-          #cityofstars-pop .close-btn {
+          #kaikaikitan-pop .close-btn {
             text-align: center;
             background: rgb(255, 252, 231);
             border: 0;
@@ -567,7 +567,7 @@
             modal.remove();
         }
       </script>
-      <button class="btn" onclick="openCloser()"><img src="picture/AWholeNewWorld.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <button class="btn" onclick="openAWholeNewWorld()"><img src="picture/AWholeNewWorld.jpg" alt="이미지버튼" width="350px" height="350px"></button>
       <div id= "awholenewworld-pop" class="hide">
         <div class="info">
             <div class="lyrics">
@@ -598,16 +598,6 @@
                 A hundred thousand things to see (hold your breath, it gets better)<br>
                 I'm like a shooting star, I've come so far<br>
                 I can't go back to where I used to be<br>
-                A whole new world<br>
-                With new horizons to pursue<br>
-                I'll chase them anywhere<br>
-                There's time to spare<br>
-                Let me share this whole new world with you<br><br>
-                A whole new world (a whole new world)<br>
-                A new fantastic point of view<br>
-                No one to tell us, "No"<br>
-                Or where to go<br>
-                Or say we're only dreaming<br>
                 A whole new world (every turn, a surprise)<br>
                 With new horizons to pursue (every moment, red-letter)<br>
                 I'll chase them anywhere, there's time to spare<br>
@@ -691,57 +681,82 @@
           popup();
         }
 
-        function openCityOfStars() {
-          const popup = document.querySelector('#cityofstars-pop');
+        function openKaiKaiKitan() {
+          const popup = document.querySelector('#kaikaikitan-pop');
             popup.classList.remove('hide');
             body.classList.add("not-scroll");
             body.insertAdjacentHTML('afterend',modalHtml);
         }
-        function closeCityOfStars(){
-          const popup = document.querySelector('#cityofstars-pop');
+        function closeKaiKaiKitan(){
+          const popup = document.querySelector('#kaikaikitan-pop');
               popup.classList.add('hide');
             body.classList.remove("not-scroll");
             modal.remove();
         }
       </script>
-      <button class="btn" onclick="openEx()"><img src="picture/CityOfStars.jpg" alt="이미지버튼" width="350px" height="350px"></button>
-      <div id="cityofstars-pop" class="hide">
+      <button class="btn" onclick="openKaiKaiKitan()"><img src="picture/kaikaikitan.jpg" alt="이미지버튼" width="350px" height="350px"></button>
+      <div id="kaikaikitan-pop" class="hide">
           <div class="info">
             <div class="lyrics">
-                City of stars, <br>
-                Are you shinning just for me?<br>
-                City of stars,<br>
-                There's so much that I can't see<br>
-                Who knows<br>
-                I felt it from the first embrace<br>
-                I shared with you<br><br>
-                That now, Our dreams,<br>
-                They've finally come true<br>
-                City of stars,<br>
-                Jus one thing everybody wants<br>
-                There in the bars and thorugh the smokescreen of the crowded restaurants<br>
-                It's love<br>
-                Yes, all we're looking for is love from someone else<br><br>
-                A rush<br>
-                A glance<br>
-                A touch<br>
-                A dance<br>
-                To look in somebody's eyes,<br>
-                To light up the skies,<br>
-                To open the world and send me reeling,<br>
-                A voice that says I'll be here<br>
-                and you'll be alright<br><br>
-                I don't care if I know just where I will go<br>
-                Cause all that I need is this crazy feeling<br>
-                And rat-a-tat of my heart<br><br>
-                I think I wnat it to stay<br>
-                City of stars,<br>
-                Are you shinning just for me?<br>
-                City of stars,<br><br>
-                You never shined so brightly<br><br>
-
+              有象無象　人の成り<br>
+              虚勢 心象 人外 ああ物の怪みたいだ<br>
+              虚心坦懐 命宿し<br>
+              あとはぱっぱらぱな中身なき人間<br>
+              寄せる期待　不平等な人生<br>
+              才能もない　大乗　非日常が<br>
+              怨親平等に没個性<br>
+              辿る記憶　僕に居場所などないから<br><br>
+              夢の狭間で泣いてないで<br>
+              どんな顔すれば良いか分かってる<br>
+              だけどまだ　応えてくれよ<br><br>
+              闇を祓って　闇を祓って<br>
+              夜の帳が降りたら合図だ<br>
+              相対して　廻る環状戦<br>
+              戯言などは　吐き捨ていけと<br><br>
+              まだ止めないで　まだ止めないで<br>
+              誰よりも聡く在る街に生まれしこの正体を<br>
+              今はただ　呪い呪われた僕の未来を想像して<br><br>
+              走って転んで<br>
+              消えない痛み抱いては<br>
+              世界が待ってる<br>
+              この一瞬を<br><br>
+              ああ抒情的 感情が 揺らいでいくバグ<br>
+              あの従順に従った欠陥の罰<br>
+              死守選択しかない愛に無常気<br>
+              声も出せないまま<br>
+              ああ　傀儡な誓いの無き百鬼夜行<br>
+              ああ　数珠繋ぎなこの果てまでも<br>
+              極楽往生 現実蹴って 凪いで<br>
+              命を投げ出さないで<br><br>
+              内の脆さに浸って<br>
+              どんな顔すれば良いか分かんないよ<br>
+              今はただ　応えてくれよ<br><br>
+              五常を説いて　五常を説いて<br>
+              不確かな声を紡ぐアイデア<br>
+              相殺して 廻る感情線<br>
+              その先に今　立ち上がる手を<br><br>
+              ただ追いかけて　ただ追いかけて<br>
+              誰よりも強く在りたいと願う<br>
+              君の運命すら今はただ<br>
+              ほの暗い夜の底に深く深く落ち込んで<br><br>
+              不格好に見えたかい<br>
+              これが今の僕なんだ<br>
+              何者にもなれないだけの屍だ　笑えよ<br>
+              目の前の全てから　逃げることさえやめた<br>
+              イメージを繰り返し　想像の先を行けと<br><br>
+              闇を祓って　闇を祓って<br>
+              夜の帳が降りたら合図だ<br>
+              相対して　廻る環状戦<br>
+              戯言などは　吐き捨ていけと<br><br>
+              まだ止めないで　まだ止めないで<br>
+              誰よりも聡く在る街に生まれしこの正体を<br>
+              今はただ　呪い呪われた僕の未来を創造して<br><br>
+              走って転んで<br>
+              消えない痛み抱いては<br>
+              世界が待ってる<br>
+              この一瞬を<br><br>
             </div>
-            <button class="close-btn" onclick="closeCityOfStars()">닫기</button>
+            <button class="close-btn" onclick="closeKaiKaiKitan()">닫기</button>
           </div>
       </div>
 
